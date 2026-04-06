@@ -23,7 +23,7 @@
 
     <!-- Project Cards -->
     <div class="projects__grid scroll-reveal" id="projectsGrid">
-      {% for project in projects.items %}
+      {% for project in projects.list %}
       <article
         class="project-card{% if project.featured %} project-card--featured{% endif %}"
         data-category="{{ project.category }}"

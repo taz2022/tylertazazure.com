@@ -169,7 +169,7 @@ PROJECTS = {
         "I build practical digital tools — websites, systems, and applications "
         "that solve real problems cleanly. Here's a selection of recent work."
     ),
-    "items": [
+    "list": [
         {
             "title": "Azure Archives",
             "category": "Web Development",
