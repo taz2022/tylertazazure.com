@@ -1,0 +1,97 @@
+<section class="section contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact__grid">
+
+      <!-- Left: Copy -->
+      <div class="contact__info scroll-reveal">
+        <div class="section-label">Contact</div>
+        <h2 class="section-heading" id="contact-heading">{{ contact.headline }}</h2>
+        <p class="contact__sub">{{ contact.subheadline }}</p>
+
+        <a href="mailto:{{ contact.email }}" class="contact__email-link" aria-label="Send email to Tyler Azure">
+          {{ contact.email_label }}
+        </a>
+
+        {% if social_links %}
+        <div class="contact__social" aria-label="Social links">
+          {% for link in social_links %}
+          {% if link.url and link.url != '#' %}
+          <a href="{{ link.url }}" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="{{ link.platform }}">
+            {{ link.platform }}
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact__form-col scroll-reveal">
+        <div id="formSuccess" class="form-success" role="alert" aria-live="polite" hidden>
+          <span>✓</span> Thanks — I'll be in touch soon.
+        </div>
+        <div id="formError" class="form-error" role="alert" aria-live="polite" hidden>
+          Something went wrong. Please try again or email directly.
+        </div>
+
+        <div id="contactFormWrap">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName" class="form-label">Name <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                class="form-input"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                class="form-input"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject" class="form-label">Subject</label>
+            <input
+              type="text"
+              id="contactSubject"
+              name="subject"
+              class="form-input"
+              placeholder="What's this about?"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage" class="form-label">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              id="contactMessage"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="Tell me what you're working on..."
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <button type="button" id="contactSubmit" class="btn btn--primary btn--lg btn--full">
+            Send Message
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

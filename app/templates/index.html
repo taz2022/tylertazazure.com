@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.title }} — {{ site.tagline }}{% endblock %}
+
+{% block content %}
+  {% include "partials/hero.html" %}
+  {% include "partials/about.html" %}
+  {% include "partials/identity.html" %}
+  {% include "partials/music.html" %}
+  {% include "partials/projects.html" %}
+  {% include "partials/museum.html" %}
+  {% include "partials/timeline.html" %}
+  {% include "partials/contact.html" %}
+{% endblock %}

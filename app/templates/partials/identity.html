@@ -1,0 +1,23 @@
+<section class="section identity" id="identity" aria-labelledby="identity-heading">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <div class="section-label">What I Do</div>
+      <h2 class="section-heading" id="identity-heading">{{ identity.headline }}</h2>
+      <p class="section-sub">{{ identity.subheadline }}</p>
+    </div>
+
+    <div class="identity__pillars scroll-reveal">
+      {% for pillar in identity.pillars %}
+      <div class="identity__card">
+        <div class="identity__icon" aria-hidden="true">{{ pillar.icon }}</div>
+        <h3 class="identity__card-title">{{ pillar.title }}</h3>
+        <p class="identity__card-text">{{ pillar.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <blockquote class="identity__synthesis scroll-reveal">
+      <p>{{ identity.synthesis }}</p>
+    </blockquote>
+  </div>
+</section>

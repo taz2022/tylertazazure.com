@@ -1,0 +1,26 @@
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="footer__name">Tyler Azure</span>
+      <span class="footer__tagline">{{ footer.tagline }}</span>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <ul class="footer__links" role="list">
+        {% for link in nav_links %}
+        <li><a href="{{ link.href }}" class="footer__link">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        &copy; <span id="footerYear"></span> {{ footer.copyright }}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>

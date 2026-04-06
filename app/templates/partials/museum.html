@@ -1,0 +1,27 @@
+<section class="section museum" id="museum" aria-labelledby="museum-heading">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <div class="section-label">Museum & Archives</div>
+      <h2 class="section-heading" id="museum-heading">{{ museum.headline }}</h2>
+      <p class="section-sub">{{ museum.subheadline }}</p>
+    </div>
+
+    <p class="museum__intro scroll-reveal">{{ museum.intro }}</p>
+
+    <div class="museum__cards scroll-reveal">
+      {% for card in museum.cards %}
+      <div class="museum__card">
+        <div class="museum__card-icon" aria-hidden="true">{{ card.icon }}</div>
+        <h3 class="museum__card-title">{{ card.title }}</h3>
+        <p class="museum__card-text">{{ card.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if museum.quote %}
+    <blockquote class="museum__quote scroll-reveal">
+      <p>"{{ museum.quote }}"</p>
+    </blockquote>
+    {% endif %}
+  </div>
+</section>

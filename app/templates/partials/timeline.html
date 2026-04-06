@@ -1,0 +1,28 @@
+<section class="section timeline" id="timeline" aria-labelledby="timeline-heading">
+  <div class="container">
+    <div class="section-header scroll-reveal">
+      <div class="section-label">Journey</div>
+      <h2 class="section-heading" id="timeline-heading">{{ timeline.headline }}</h2>
+      <p class="section-sub">{{ timeline.subheadline }}</p>
+    </div>
+
+    <ol class="timeline__list scroll-reveal" aria-label="Career journey timeline">
+      {% for event in timeline.events %}
+      <li class="timeline__item timeline__item--{{ event.category | lower | replace(' ', '-') | replace('/', '') }}">
+        <div class="timeline__marker" aria-hidden="true">
+          <span class="timeline__dot"></span>
+          <span class="timeline__line"></span>
+        </div>
+        <div class="timeline__content">
+          <div class="timeline__meta">
+            <span class="timeline__period">{{ event.period }}</span>
+            <span class="timeline__category-badge">{{ event.category }}</span>
+          </div>
+          <h3 class="timeline__title">{{ event.title }}</h3>
+          <p class="timeline__description">{{ event.description }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
