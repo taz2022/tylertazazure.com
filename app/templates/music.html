@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Music — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-music.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="music-page">
+
+  {# ── Hero ──────────────────────────────────────────── #}
+  <section class="music-hero">
+    <div class="music-hero__overlay"></div>
+    <div class="music-hero__inner">
+      <div class="label">{{ music.hero.subtitle }}</div>
+      <h1 class="music-hero__title">{{ music.hero.title }}</h1>
+      <p class="music-hero__intro">{{ music.hero.intro }}</p>
+    </div>
+  </section>
+
+  {# ── Bands grid ────────────────────────────────────── #}
+  <section class="music-section">
+    <div class="music-section__inner">
+      <h2 class="music-section__heading">Bands</h2>
+      <div class="music-bands-grid">
+        {% for band in music.bands %}
+        <a href="/music/{{ band.slug }}" class="band-card {% if band.featured %}band-card--featured{% endif %}">
+          {% if band.card_image %}
+          <div class="band-card__image">
+            <img src="{{ asset_url(band.card_image) }}" alt="{{ band.name }}" loading="lazy" />
+          </div>
+          {% else %}
+          <div class="band-card__image band-card__image--placeholder">
+            <span class="band-card__icon">&#9835;</span>
+          </div>
+          {% endif %}
+          <div class="band-card__body">
+            <h3 class="band-card__name">{{ band.name }}</h3>
+            <p class="band-card__role">{{ band.role }} &middot; {{ band.status }}</p>
+            <p class="band-card__desc">{{ band.short }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ── Stages shared marquee ─────────────────────────── #}
+  {% if music.stages_shared %}
+  <section class="music-section music-section--alt">
+    <div class="stages-marquee" aria-label="Stages shared">
+      <div class="stages-marquee__label">Shared stages with</div>
+      <div class="stages-marquee__track">
+        {% for stage in music.stages_shared %}
+        <span class="stages-marquee__item">{{ stage }}</span>
+        {% endfor %}
+        {% for stage in music.stages_shared %}
+        <span class="stages-marquee__item" aria-hidden="true">{{ stage }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# ── Gallery ───────────────────────────────────────── #}
+  {% if music.gallery_images %}
+  <section class="music-section">
+    <div class="music-section__inner">
+      <h2 class="music-section__heading">Gallery</h2>
+      <div class="music-gallery">
+        {% for img in music.gallery_images %}
+        <div class="music-gallery__item">
+          <img src="{{ asset_url(img) }}" alt="Performance photo" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}

@@ -1,0 +1,368 @@
+/* ─────────────────────────────────────────────────────────── */
+/* page-music.css — /music and /music/<slug> aesthetic        */
+/* Chrome + stage lighting: amber/blue radial, grain, bold    */
+/* ─────────────────────────────────────────────────────────── */
+
+.music-page,
+.music-band-page {
+  padding-top: var(--navbar-h);
+}
+
+/* ── Music Hero ───────────────────────────────────────────── */
+.music-hero {
+  position: relative;
+  padding: clamp(6rem, 12vw, 10rem) 0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(200, 148, 26, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(30, 126, 212, 0.06) 0%, transparent 50%),
+    var(--color-bg);
+  overflow: hidden;
+}
+
+.music-hero__overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.music-hero__inner {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.music-hero .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.music-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.95;
+  margin: 0 0 2rem 0;
+}
+
+.music-hero__intro {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 55ch;
+  margin: 0 auto;
+}
+
+/* ── Music sections ───────────────────────────────────────── */
+.music-section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.music-section--alt {
+  background: var(--color-bg-2);
+}
+
+.music-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.music-section__heading {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+/* ── Band cards grid ──────────────────────────────────────── */
+.music-bands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.band-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.band-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+}
+
+.band-card--featured {
+  border-color: rgba(200, 148, 26, 0.3);
+}
+
+.band-card__image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-bg-3);
+}
+
+.band-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.band-card__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.band-card__icon {
+  font-size: 3rem;
+  color: var(--color-gold);
+  opacity: 0.5;
+}
+
+.band-card__body {
+  padding: var(--space-6);
+  flex: 1;
+}
+
+.band-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.band-card__role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin: 0 0 0.75rem 0;
+}
+
+.band-card__desc {
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Stages marquee ───────────────────────────────────────── */
+.stages-marquee {
+  padding: var(--space-6) 2rem;
+  overflow: hidden;
+}
+
+.stages-marquee__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.stages-marquee__track {
+  display: flex;
+  gap: 2rem;
+  animation: marquee-scroll 40s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.stages-marquee:hover .stages-marquee__track {
+  animation-play-state: paused;
+}
+
+.stages-marquee__item {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  padding: 0 1.5rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.stages-marquee__item:last-child { border-right: none; }
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stages-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    white-space: normal;
+    width: auto;
+  }
+}
+
+/* ── Music gallery ────────────────────────────────────────── */
+.music-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.music-gallery__item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* ── Band sub-page ────────────────────────────────────────── */
+.band-hero {
+  padding: clamp(8rem, 14vw, 12rem) 0 clamp(3rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse at 40% 50%, rgba(200, 148, 26, 0.06) 0%, transparent 60%),
+    var(--color-bg);
+}
+
+.band-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.band-hero__back {
+  display: inline-block;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.band-hero__back:hover { color: var(--color-gold-light); }
+
+.band-hero__kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.band-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.05;
+  margin: 0 0 1rem 0;
+}
+
+.band-hero__short {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+  max-width: 55ch;
+}
+
+/* ── Band sections ────────────────────────────────────────── */
+.band-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.band-section--alt { background: var(--color-bg-2); }
+
+.band-section__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.band-section__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Reference list */
+.band-reflist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.band-reflist__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.band-reflist__item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.band-reflist__item a:hover { color: var(--color-gold-light); }
+
+.band-reflist__outlet {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.band-reflist__label {
+  font-size: 0.95rem;
+}
+
+/* Band press grid */
+.band-press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+/* Streaming list */
+.band-streaming {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.band-streaming__item a {
+  display: inline-block;
+  padding: 0.5em 1.2em;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.band-streaming__item a:hover {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .music-bands-grid { grid-template-columns: 1fr; }
+  .band-press-grid { grid-template-columns: 1fr; }
+}

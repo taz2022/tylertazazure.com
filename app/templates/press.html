@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Press — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-hub.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="press-page">
+
+  <header class="press-page__hero">
+    <div class="press-page__inner">
+      <div class="label">Press</div>
+      <h1 class="press-page__title">Coverage, interviews, and reviews.</h1>
+      <p class="press-page__sub">
+        A selection of press from across the music career &mdash; spanning Pandemic, Code Red Riot, Hairball, La Madness, and more.
+      </p>
+    </div>
+  </header>
+
+  <section class="press-page__grid-wrap">
+    <div class="press-grid">
+      {% for item in press_items %}
+      <article class="press-card">
+        <div class="press-card__meta">
+          <span class="press-card__outlet">{{ item.outlet }}</span>
+          <span class="press-card__type">{{ item.type }}</span>
+        </div>
+        <h3 class="press-card__title">{{ item.title }}</h3>
+        {% if item.pull_quote %}
+        <p class="press-card__quote">&ldquo;{{ item.pull_quote }}&rdquo;</p>
+        {% endif %}
+        <div class="press-card__footer">
+          <span class="press-card__date">{{ item.date }}</span>
+          <span class="press-card__band">{{ item.band }}</span>
+          {% if item.url %}
+          <a href="{{ item.url }}" target="_blank" rel="noopener" class="press-card__link">Read &rarr;</a>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if dead_items %}
+  <section class="press-page__dead">
+    <div class="press-page__inner">
+      <h2 class="press-page__subtitle">Additional citations</h2>
+      <p class="muted">These publications covered the work but their archives are no longer online.</p>
+      <ul class="dead-press-list">
+        {% for item in dead_items %}
+        <li>
+          <strong>{{ item.outlet }}</strong> &mdash; {{ item.title }}
+          <span class="muted">({{ item.date }})</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 
   {% block head %}{% endblock %}
+  {% block head_extra %}{% endblock %}
 </head>
 <body>
   {% include "partials/navbar.html" %}

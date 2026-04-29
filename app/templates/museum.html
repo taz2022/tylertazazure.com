@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Museum — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-museum.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="museum-page">
+
+  {# ── Hero ──────────────────────────────────────────── #}
+  <section class="museum-hero">
+    <div class="museum-hero__inner">
+      <div class="label label--museum">{{ museum.hero.subtitle }}</div>
+      <h1 class="museum-hero__title">{{ museum.hero.title }}</h1>
+      <p class="museum-hero__intro">{{ museum.hero.intro }}</p>
+    </div>
+  </section>
+
+  {# ── Work areas ────────────────────────────────────── #}
+  <section class="museum-section">
+    <div class="museum-section__inner">
+      {% for area in museum.work_areas %}
+      <div class="work-area scroll-reveal">
+        <h2 class="work-area__title">{{ area.title }}</h2>
+        <p class="work-area__body">{{ area.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# ── Pull quote ────────────────────────────────────── #}
+  <section class="museum-quote-section">
+    <div class="museum-quote">
+      <blockquote>
+        <p>{{ museum.quote }}</p>
+      </blockquote>
+    </div>
+  </section>
+
+  {# ── Collaborations (placeholder) ──────────────────── #}
+  {% if museum.collaborations %}
+  <section class="museum-section">
+    <div class="museum-section__inner">
+      <h2>Collaborations</h2>
+      {% for collab in museum.collaborations %}
+      <p>{{ collab }}</p>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Dev — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-tech.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="tech-page">
+
+  {# ── Hero ──────────────────────────────────────────── #}
+  <section class="tech-hero">
+    <div class="tech-hero__inner">
+      <div class="label">{{ tech.hero.subtitle }}</div>
+      <h1 class="tech-hero__title">{{ tech.hero.title }}</h1>
+      <p class="tech-hero__intro">{{ tech.hero.intro }}</p>
+    </div>
+  </section>
+
+  {# ── Azure Archives case study ─────────────────────── #}
+  {% set f = tech.flagship %}
+  <section class="case-study">
+    <div class="case-study__inner">
+      <div class="case-study__header">
+        <h2 class="case-study__name">{{ f.title }}</h2>
+        <p class="case-study__subtitle">{{ f.subtitle }}</p>
+        <p class="case-study__tagline">{{ f.tagline }}</p>
+        <div class="case-study__actions">
+          {% if f.url_external %}
+          <a class="btn btn--primary" href="{{ f.url_external }}" target="_blank" rel="noopener">Visit Live Site &rarr;</a>
+          {% endif %}
+          {% if f.demo_url %}
+          <a class="btn btn--ghost" href="{{ f.demo_url }}" target="_blank" rel="noopener">Try the Demo</a>
+          {% endif %}
+        </div>
+        <div class="case-study__stack">
+          {% for tech_item in f.stack %}
+          <span class="stack-tag">{{ tech_item }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section">
+    <div class="case-study__prose">
+      <h2>The Problem</h2>
+      <p>{{ f.problem }}</p>
+      <h2>The Approach</h2>
+      <p>{{ f.approach }}</p>
+    </div>
+  </section>
+
+  <section class="case-study__section case-study__section--alt">
+    <div class="case-study__inner">
+      <h2>What It Does</h2>
+      <div class="feature-grid">
+        {% for feature in f.features %}
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">{{ feature.icon }}</div>
+          <h3 class="feature-card__title">{{ feature.title }}</h3>
+          <p class="feature-card__text">{{ feature.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% if f.screenshots %}
+  <section class="case-study__section">
+    <div class="case-study__inner">
+      <h2>Product Screenshots</h2>
+      <div class="screenshot-grid">
+        {% for img in f.screenshots %}
+        <div class="screenshot-grid__item">
+          <img src="{{ asset_url(img) }}" alt="{{ f.title }} screenshot" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="case-study__section case-study__section--alt">
+    <div class="case-study__prose">
+      <h2>What Makes It Different</h2>
+      <ul class="differentiator-list">
+        {% for point in f.differentiators %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  {% if f.pricing_tiers %}
+  <section class="case-study__section">
+    <div class="case-study__inner">
+      <h2>Pricing</h2>
+      <div class="pricing-grid">
+        {% for tier in f.pricing_tiers %}
+        <div class="pricing-card">
+          <div class="pricing-card__name">{{ tier.name }}</div>
+          <div class="pricing-card__price">
+            {{ tier.price }}
+            {% if tier.period %}<span class="pricing-card__period">{{ tier.period }}</span>{% endif %}
+          </div>
+          <p class="pricing-card__note">{{ tier.note }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="case-study__cta">
+    <div class="case-study__inner">
+      <h2>{{ f.cta_text }}</h2>
+      {% if f.cta_url %}
+      <a class="btn btn--primary btn--lg" href="{{ f.cta_url }}" target="_blank" rel="noopener">
+        {{ f.cta_text }} &rarr;
+      </a>
+      {% endif %}
+    </div>
+  </section>
+
+  {# ── Other projects ────────────────────────────────── #}
+  {% if tech.other_projects %}
+  <section class="tech-section">
+    <div class="case-study__inner">
+      <h2>Other Projects</h2>
+      <div class="other-projects">
+        {% for proj in tech.other_projects %}
+        <div class="other-project-card">
+          <h3>{{ proj.title }}</h3>
+          <p>{{ proj.description }}</p>
+          <div class="other-project-card__stack">
+            {% for t in proj.stack %}
+            <span class="stack-tag">{{ t }}</span>
+            {% endfor %}
+          </div>
+          {% if proj.github %}
+          <a href="{{ proj.github }}" target="_blank" rel="noopener" class="other-project-card__link">GitHub &rarr;</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# ── Museum / archival background ──────────────────── #}
+  {% if tech.museum_note %}
+  <section class="tech-section tech-section--museum">
+    <div class="case-study__prose">
+      <div class="section-label">{{ tech.museum_note.label }}</div>
+      <p>{{ tech.museum_note.body }}</p>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}

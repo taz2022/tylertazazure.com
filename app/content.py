@@ -1,327 +1,321 @@
 """
-content.py — Single source of truth for all site content.
+content.py — Single source of truth for site content, organized by discipline.
 
-Edit this file to update copy, projects, music highlights, museum work,
-social links, and contact info without touching templates.
-
-Placeholder values are marked with: # TODO: update
+Press content is NOT in this file — it loads from press/press-inventory.json via
+press_loader.py and is filtered by type at render time.
 """
 
-# ---------------------------------------------------------------------------
-# SITE META
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
+# SITE META — global
+# ───────────────────────────────────────────────────────────
 SITE = {
     "title": "Tyler Azure",
-    "tagline": "Musician. Builder. Museum Modernizer.",
+    "tagline": "Guitarist and developer.",
     "description": (
-        "Tyler Azure is a musician, web developer, and museum professional "
-        "who works across performance, software, and preservation."
+        "Tyler Azure is a guitarist and developer based in Minnesota. "
+        "Lead guitar in Pandemic and Code Red Riot. Builder of Azure Archives."
     ),
-    "contact_email": "tyler@tylerazu.re",  # TODO: update
-    "contact_email_label": "tyler@tylerazu.re",  # display text
+    "contact_email": "azuretaz@gmail.com",  # TODO: confirm
+    "base_url": "https://tylertazazure.com",
 }
 
-# ---------------------------------------------------------------------------
-# NAVIGATION
-# ---------------------------------------------------------------------------
-NAV_LINKS = [
-    {"label": "About", "href": "#about"},
-    {"label": "Music", "href": "#music"},
-    {"label": "Projects", "href": "#projects"},
-    {"label": "Museum Work", "href": "#museum"},
-    {"label": "Journey", "href": "#timeline"},
-    {"label": "Contact", "href": "#contact"},
-]
-
-# ---------------------------------------------------------------------------
-# HERO
-# ---------------------------------------------------------------------------
-HERO = {
-    "name": "Tyler Azure",
-    "headline": "Musician. Builder. Museum Modernizer.",
-    "subheadline": (
-        "I perform on stage, build digital tools, and bring modern thinking "
-        "to archives, collections, and history."
-    ),
-    "cta_primary": {"label": "View My Work", "href": "#projects"},
-    "cta_secondary": {"label": "Get in Touch", "href": "#contact"},
-    # Set these to Backblaze paths once uploaded, e.g. "hero/background.jpg"
-    "background_image": "",  # TODO: update — leave blank for CSS gradient fallback
-}
-
-# ---------------------------------------------------------------------------
-# ABOUT
-# ---------------------------------------------------------------------------
-ABOUT = {
-    "intro": (
-        "I've spent years moving between worlds that most people keep separate — "
-        "the stage, the codebase, and the archive. Each one has shaped how I think "
-        "and what I build."
-    ),
-    "body": (
-        "Music gave me discipline, creative range, and the ability to read a room. "
-        "Development gave me systems thinking and the satisfaction of solving real problems. "
-        "Museum and archival work gave me a respect for story, structure, and the long view. "
-        "Together, they make me a different kind of professional — one who can perform, "
-        "build, and preserve with equal seriousness."
-    ),
-    "portrait_image": "",  # TODO: update — Backblaze path or local filename
-    "stats": [
-        {"label": "Years in Music", "value": "10+"},           # TODO: update
-        {"label": "Projects Built", "value": "20+"},           # TODO: update
-        {"label": "Museum Roles", "value": "3+"},              # TODO: update
-        {"label": "Disciplines Combined", "value": "One"},
+# ───────────────────────────────────────────────────────────
+# NAV — simplified to Music · Tech · Museum | About · Press · Contact
+# ───────────────────────────────────────────────────────────
+NAV = {
+    "left": [
+        {"label": "Music", "href": "/music"},
+        {"label": "Dev",   "href": "/tech"},
+    ],
+    "right": [
+        {"label": "About",   "href": "/#about"},
+        {"label": "Press",   "href": "/press"},
+        {"label": "Contact", "href": "/#contact"},
     ],
 }
 
-# ---------------------------------------------------------------------------
-# IDENTITY (Three Pillars)
-# ---------------------------------------------------------------------------
-IDENTITY = {
-    "headline": "Three worlds. One approach.",
-    "subheadline": (
-        "The things that seem unrelated are usually the most connected. "
-        "Here's how music, code, and history feed each other."
-    ),
-    "pillars": [
-        {
-            "icon": "♩",
-            "title": "Music",
-            "description": (
-                "Performance taught me creative discipline, stage presence, and how to "
-                "connect with an audience — skills that transfer directly into every client "
-                "interaction and public-facing project I take on."
-            ),
-        },
-        {
-            "icon": "⌨",
-            "title": "Development",
-            "description": (
-                "Building software taught me to think in systems — to ask not just "
-                "\"does this work?\" but \"will this still work in two years?\" I build "
-                "things that are useful, maintainable, and built to last."
-            ),
-        },
-        {
-            "icon": "🏛",
-            "title": "Museum Work",
-            "description": (
-                "Archives and preservation taught me that how you steward information "
-                "matters as much as the information itself. I bring that same care to "
-                "every project, whether it's a digital system or a historical collection."
-            ),
-        },
-    ],
-    "synthesis": (
-        "Most people specialize in one lane. I've always worked across them — "
-        "and I've found that the unexpected connections between music, technology, "
-        "and history are exactly where the most interesting work happens."
-    ),
+# ───────────────────────────────────────────────────────────
+# HUB — homepage
+# ───────────────────────────────────────────────────────────
+HUB = {
+    "hero": {
+        "name": "Tyler Azure",
+        "oneliner": "Guitarist and developer based in Minnesota.",
+        "pill": "Available for projects",
+    },
+    "dev_teaser": {
+        "label": "Also building",
+        "title": "Software & Development",
+        "body": (
+            "When I'm not on stage I build software. Currently developing Azure Archives "
+            "\u2014 a SaaS platform for small museums \u2014 and doing web development with "
+            "Flask, Postgres, and Railway."
+        ),
+        "cta_label": "See the dev work",
+        "cta_href": "/tech",
+    },
 }
 
-# ---------------------------------------------------------------------------
-# MUSIC
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
+# MUSIC — /music discipline page content
+# ───────────────────────────────────────────────────────────
 MUSIC = {
-    "headline": "Music",
-    "subheadline": "Guitar. Performance. Live events. This is where it all started.",
-    "intro": (
-        "Music isn't a side project. It's been a central part of my professional "
-        "life for over a decade — performing live, working events, and developing "
-        "a creative foundation that informs everything else I do."
-    ),
-    "highlights": [
+    "hero": {
+        "title": "Music",
+        "subtitle": "Guitar. Performance. Live rock.",
+        "intro": (
+            "I started playing guitar at 13 after watching Prince play Purple Rain "
+            "live. Since then I\u2019ve played lead across rock, alt-rock, tribute, and "
+            "live-event work \u2014 from Minneapolis rooms to the Las Vegas strip."
+        ),
+    },
+    "bands": [
         {
-            "title": "Live Performance",
-            "description": (
-                "Experienced performer across venues and event formats — "
-                "from intimate sets to large live events."
-            ),
-            "image": "",  # TODO: update
-        },
-        {
-            "title": "Guitar",
-            "description": (
-                "Guitar is my primary instrument. I play across genres and bring "
-                "technical ability and musical feel to every performance."
-            ),
-            "image": "",  # TODO: update
-        },
-        {
-            "title": "Events & Entertainment",
-            "description": (
-                "Wedding performer, DJ, and MC work. I know how to read a room, "
-                "keep energy up, and make events memorable."
-            ),
-            "image": "",  # TODO: update
-        },
-    ],
-    "gallery_images": [],  # TODO: add Backblaze paths, e.g. ["music/show1.jpg", ...]
-}
-
-# ---------------------------------------------------------------------------
-# PROJECTS
-# ---------------------------------------------------------------------------
-PROJECTS = {
-    "headline": "Projects",
-    "subheadline": "Things I've designed, built, and shipped.",
-    "intro": (
-        "I build practical digital tools — websites, systems, and applications "
-        "that solve real problems cleanly. Here's a selection of recent work."
-    ),
-    "list": [
-        {
-            "title": "Azure Archives",
-            "category": "Web Development",
-            "description": (
-                "A digital archive and research platform for historical records and "
-                "collections. Built with Flask, Railway, and Backblaze B2."
-            ),
-            "stack": ["Flask", "Jinja2", "Railway", "Backblaze B2"],
-            "status": "Live",
-            "url": "https://azurearchives.com",
-            "github": "",
+            "slug": "pandemic",
+            "name": "Pandemic",
+            "role": "Lead Guitar",
+            "status": "Current",
+            "short": "Central Minnesota rock band. Active on the regional festival circuit.",
+            "url_external": "https://pandemicfever.com",
+            "card_image": "music/bands/Pandemic-Header-Logo.png",
             "featured": True,
         },
         {
-            "title": "Personal Website",
-            "category": "Web Development",
-            "description": "This site. Built with Flask, deployed on Railway.",
-            "stack": ["Flask", "Jinja2", "Railway"],
-            "status": "Live",
-            "url": "#",
-            "github": "",
+            "slug": "code-red-riot",
+            "name": "Code Red Riot",
+            "role": "Lead Guitar",
+            "status": "2017\u2013",
+            "short": "Hard rock from Las Vegas, signed to Sony RED Music. Debut album Mask (2018).",
+            "url_external": "https://coderedriot.com",
+            "card_image": "music/bands/code red riot.jpg",
+            "featured": True,
+        },
+        {
+            "slug": "hairball",
+            "name": "Hairball",
+            "role": "Fill-in Guitar",
+            "status": "Guest",
+            "short": "National-touring rock tribute from Minnesota. Van Halen, KISS, M\u00f6tley Cr\u00fce, Queen.",
+            "url_external": "https://hairballonline.com",
+            "card_image": "music/bands/hairball.webp",
             "featured": False,
         },
-        # TODO: Add more projects following this structure
+        {
+            "slug": "rockstar-bobs-rockshow",
+            "name": "Rockstar Bob\u2019s Rockshow",
+            "role": "Guitar / Vocals",
+            "status": "Current",
+            "short": "Regional rock act selling out Midwest venues.",
+            "url_external": "https://rockstarbob.com",
+            "card_image": "music/bands/rockshow.jpg",
+            "featured": False,
+        },
+        {
+            "slug": "raised-on-radio",
+            "name": "Raised on Radio",
+            "role": "Guest Guitar",
+            "status": "Occasional",
+            "short": "Classic rock variety pulling musicians from Diamondback, Outside Recess, Pandemic, Chaser.",
+            "url_external": "",
+            "card_image": "music/bands/raised-on-radio.jpg",
+            "featured": False,
+        },
+        {
+            "slug": "la-madness",
+            "name": "La Madness",
+            "role": "Lead Guitar, Backing Vocals",
+            "status": "2013 era",
+            "short": "Minneapolis indie grind blues. Debut album Chances Are. Opened for Papa Roach, Fuel, Tantric.",
+            "url_external": "",
+            "card_image": "music/bands/la madness.jpg",
+            "featured": False,
+        },
     ],
-    "categories": [
-        "All",
-        "Web Development",
-        "App Development",
-        "Automation / Tools",
-        "Museum Technology",
-        "AI-Assisted Systems",
+    "stages_shared": [
+        "Breaking Benjamin", "Eagles of Death Metal", "Steel Panther", "Fozzy",
+        "Papa Roach", "Fuel", "Tantric", "Gemini Syndrome",
+        "Las Rageous Festival", "Whisky A Go Go", "House of Blues", "First Avenue",
+    ],
+    "gallery_images": [
+        "music/gallery/preview.webp",
+        "music/gallery/preview (1).webp",
+        "music/gallery/preview (2).webp",
+        "music/gallery/preview (4).webp",
+        "music/gallery/preview (5).webp",
+        "music/gallery/preview (6).webp",
+        "music/gallery/preview (7).webp",
+        "music/gallery/preview (8).webp",
+        "music/gallery/preview (9).webp",
     ],
 }
 
-# ---------------------------------------------------------------------------
-# MUSEUM / ARCHIVES
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
+# TECH — /tech discipline page content
+# ───────────────────────────────────────────────────────────
+TECH = {
+    "hero": {
+        "title": "Development",
+        "subtitle": "Full-stack software and museum technology.",
+        "intro": (
+            "I build practical digital tools \u2014 SaaS products, websites, and systems "
+            "that solve real problems cleanly. Currently focused on museum technology."
+        ),
+    },
+    "museum_note": {
+        "label": "Archival background",
+        "body": (
+            "I also work with small historical societies and museums on digitization, "
+            "finding aids, and collection modernization \u2014 bringing modern tools to "
+            "centuries-old collections without losing what makes them worth preserving."
+        ),
+    },
+    "flagship": {
+        "title": "Azure Archives",
+        "slug": "azure-archives",
+        "subtitle": "Collections management built for small museums",
+        "tagline": "Simpler than PastPerfect. More powerful than a spreadsheet.",
+        "url_external": "https://azurearchives.com",
+        "demo_url": "https://demo.azurearchives.com",
+        "stack": ["Flask", "PostgreSQL", "Jinja2", "Railway", "Backblaze B2", "Stripe", "OpenAI"],
+        "problem": (
+            "Small museums and historical societies are stuck between two bad options: "
+            "legacy desktop software like PastPerfect that\u2019s expensive and dated, or a "
+            "patchwork of spreadsheets that lose data and can\u2019t scale. Neither gives "
+            "the public a way to actually see the collection."
+        ),
+        "approach": (
+            "Azure Archives is a web-first SaaS with full audit trail, role-based "
+            "approval workflows, DACS-compliant archival fields, and a public research "
+            "portal. AI tooling (slip scanning, OCR, Story Composer) handles tedious "
+            "cataloging so volunteers focus on the collection itself."
+        ),
+        "features": [
+            {"icon": "\U0001f4e5", "title": "Donation Intake", "text": "Log donations by hand, import from Excel, or scan physical slips with vision AI."},
+            {"icon": "\U0001f3db", "title": "Cataloging", "text": "Photos, provenance, condition, location. Role-based approval."},
+            {"icon": "\U0001f4c2", "title": "DACS Archives", "text": "Finding aids, format tracking, full-text search."},
+            {"icon": "\U0001f465", "title": "Memberships", "text": "Tiers, renewals, payments, public signup."},
+            {"icon": "\U0001f310", "title": "Research Portal", "text": "Share the collection online. Per-item visibility."},
+            {"icon": "\U0001f916", "title": "AI Tools", "text": "Slip scanning, handwritten OCR, AI-drafted stories."},
+        ],
+        "pricing_tiers": [
+            {"name": "Free Trial", "price": "$0", "period": "30 days", "note": "All features, 10GB storage."},
+            {"name": "Collections", "price": "$790", "period": "/year", "note": "Everything a small museum needs."},
+            {"name": "Collections + Research", "price": "$1,190", "period": "/year", "note": "Adds genealogy indexes."},
+            {"name": "Enterprise", "price": "from $2,990", "period": "/year", "note": "Unlimited storage, API access."},
+        ],
+        "differentiators": [
+            "Grant-fundable \u2014 eligible for MN Legacy Grants and IMLS Inspire! grants.",
+            "No per-record fees. No item caps. Unlimited users.",
+            "AI tools built in, not bolted on.",
+            "Staff always reviews before saves \u2014 AI assists, humans decide.",
+        ],
+        "screenshots": [
+            "projects/azure-archives/dashboard.jpg",
+            "projects/azure-archives/cataloging.jpg",
+            "projects/azure-archives/public-portal.jpg",
+            "projects/azure-archives/story-composer.jpg",
+        ],
+        "cta_text": "Start a free 30-day trial",
+        "cta_url": "https://azurearchives.com/signup",
+    },
+    "other_projects": [
+        {
+            "title": "tylertazazure.com",
+            "description": "This site. Flask, Railway, Backblaze. The codebase you\u2019re reading.",
+            "stack": ["Flask", "Jinja2", "Railway"],
+            "url": "",
+            "github": "https://github.com/taz2022/tylertazazure.com",
+        },
+    ],
+}
+
+# ───────────────────────────────────────────────────────────
+# MUSEUM — /museum discipline page content
+# ───────────────────────────────────────────────────────────
 MUSEUM = {
-    "headline": "Museum & Archival Work",
-    "subheadline": "Preservation, digitization, and systems modernization.",
-    "intro": (
-        "I've worked with museums, historical societies, and archival collections — "
-        "bringing modern tools and workflows to institutions that have long histories "
-        "worth protecting and sharing."
-    ),
-    "cards": [
+    "hero": {
+        "title": "Museum",
+        "subtitle": "Archival and preservation work.",
+        "intro": (
+            "I work with small historical societies and museums on digitization, "
+            "finding aids, and collection modernization. Bringing modern tools to "
+            "centuries-old collections without losing what makes them worth preserving."
+        ),
+    },
+    "work_areas": [
         {
-            "icon": "📦",
-            "title": "Archives & Digitization",
-            "description": (
-                "Converting physical records and collections into accessible, "
-                "searchable digital formats. Making history findable."
+            "title": "Digitization strategy",
+            "body": (
+                "Helping small institutions move from paper and spreadsheets to "
+                "DACS-compliant digital records without losing provenance or context."
             ),
         },
         {
-            "icon": "⚙",
-            "title": "Systems Modernization",
-            "description": (
-                "Updating legacy workflows with tools that actually work — "
-                "databases, collection management, and digital infrastructure."
+            "title": "Platform migration",
+            "body": (
+                "Moving collections off legacy software (PastPerfect, various custom "
+                "Access databases) into modern systems \u2014 including Azure Archives, but "
+                "also advising on open-source alternatives when appropriate."
             ),
         },
         {
-            "icon": "📖",
-            "title": "Historical Storytelling",
-            "description": (
-                "Helping institutions share their collections with the public "
-                "through thoughtful digital experiences and web presence."
-            ),
-        },
-        {
-            "icon": "🗂",
-            "title": "Collections Support",
-            "description": (
-                "Organizing, cataloging, and maintaining collections — "
-                "with an eye toward long-term usability and access."
+            "title": "Finding aids & access",
+            "body": (
+                "Writing finding aids and public-access layers that let the community "
+                "actually use what an institution has spent decades preserving."
             ),
         },
     ],
     "quote": (
-        "Good archives don't just store the past. They make it usable."
+        "Good archives don\u2019t just store the past. They make it usable."
     ),
+    "collaborations": [],
 }
 
-# ---------------------------------------------------------------------------
-# TIMELINE / JOURNEY
-# ---------------------------------------------------------------------------
-TIMELINE = {
-    "headline": "The Journey",
-    "subheadline": "Music, code, and history — in roughly the order they happened.",
-    "events": [
-        {
-            "period": "Early Years",          # TODO: add approximate dates
-            "category": "Music",
-            "title": "Started Playing Guitar",
-            "description": "Picked up guitar and began performing — what became a decade-long career in live music.",
-        },
-        {
-            "period": "Mid Career",           # TODO: update
-            "category": "Music",
-            "title": "Live Performance & Events",
-            "description": "Built a professional presence in live music, events, weddings, and entertainment.",
-        },
-        {
-            "period": "Transition",           # TODO: update
-            "category": "Development",
-            "title": "Started Building for the Web",
-            "description": "Began learning software development and building practical tools and websites.",
-        },
-        {
-            "period": "Recent",               # TODO: update
-            "category": "Museum",
-            "title": "Museum & Archival Work",
-            "description": "Joined museum and historical society projects, bringing digital tools to preservation work.",
-        },
-        {
-            "period": "Now",
-            "category": "All Three",
-            "title": "Music + Code + History",
-            "description": "Working across all three disciplines — performing, building, and preserving.",
-        },
+# ───────────────────────────────────────────────────────────
+# ABOUT — lives at /#about anchor on homepage
+# ───────────────────────────────────────────────────────────
+ABOUT = {
+    "headline": "About",
+    "body_paragraphs": [
+        (
+            "I grew up in Sauk Rapids, Minnesota. I started playing guitar at 13 after "
+            "my dad took me to a Prince concert \u2014 watching Purple Rain live hooked me "
+            "for good."
+        ),
+        (
+            "For more than a decade I\u2019ve worked across three disciplines that "
+            "shouldn\u2019t overlap but do: live music, software development, and archival "
+            "work with small museums. Music taught me discipline and how to read a "
+            "room. Development taught me systems thinking and the satisfaction of "
+            "solving real problems. Museum work taught me respect for story, structure, "
+            "and the long view."
+        ),
+        (
+            "Together they make me a different kind of professional \u2014 one who can "
+            "perform, build, and preserve with equal seriousness."
+        ),
     ],
 }
 
-# ---------------------------------------------------------------------------
-# CONTACT
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
+# CONTACT — lives at /#contact anchor on homepage
+# ───────────────────────────────────────────────────────────
 CONTACT = {
-    "headline": "Let's Work Together",
+    "headline": "Let\u2019s Work Together",
     "subheadline": (
-        "Whether it's a web project, a music event, or museum technology work — "
-        "I'd like to hear what you're building."
+        "Booking, development, or museum technology \u2014 happy to hear what you\u2019re building."
     ),
     "email": SITE["contact_email"],
-    "email_label": SITE["contact_email_label"],
 }
 
-# ---------------------------------------------------------------------------
-# SOCIAL LINKS
-# ---------------------------------------------------------------------------
-SOCIAL_LINKS = [
-    {"platform": "GitHub", "url": "#", "icon": "github"},      # TODO: update
-    {"platform": "LinkedIn", "url": "#", "icon": "linkedin"},  # TODO: update
-    # {"platform": "Instagram", "url": "#", "icon": "instagram"},
-    # {"platform": "Twitter", "url": "#", "icon": "twitter"},
-]
-
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
 # FOOTER
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────
 FOOTER = {
-    "tagline": "Musician. Builder. Museum Modernizer.",
-    "copyright": "Tyler Azure",
+    "tagline": "Guitarist and developer.",
+    "social_links": [
+        {"platform": "GitHub",    "url": "https://github.com/taz2022", "icon": "github"},
+        {"platform": "Instagram", "url": "https://www.instagram.com/tazazure/", "icon": "instagram"},
+    ],
 }

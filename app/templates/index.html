@@ -1,14 +1,98 @@
 {% extends "base.html" %}
-
 {% block title %}{{ site.title }} — {{ site.tagline }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-hub.css') }}">
+{% endblock %}
 
 {% block content %}
-  {% include "partials/hero.html" %}
-  {% include "partials/about.html" %}
-  {% include "partials/identity.html" %}
-  {% include "partials/music.html" %}
-  {% include "partials/projects.html" %}
-  {% include "partials/museum.html" %}
-  {% include "partials/timeline.html" %}
-  {% include "partials/contact.html" %}
+<main class="hub">
+
+  {# -- Hero ------------------------------------------------- #}
+  <section class="hub-hero" id="top">
+    <div class="hub-hero__inner">
+      <span class="pill pill--amber">{{ hub.hero.pill }}</span>
+      <h1 class="hub-hero__name">{{ hub.hero.name }}</h1>
+      <p class="hub-hero__oneliner">{{ hub.hero.oneliner }}</p>
+    </div>
+    <div class="hub-hero__scroll-indicator">Scroll</div>
+  </section>
+
+  {# -- Bands ------------------------------------------------ #}
+  <section class="hub-bands" id="bands">
+    <div class="hub-bands__inner">
+      <div class="hub-bands__header">
+        <span class="section-label">Current & Past</span>
+        <h2 class="section-heading">Bands</h2>
+      </div>
+      <div class="hub-bands__grid">
+        {% for band in music.bands %}
+        <a href="/music/{{ band.slug }}" class="band-card{% if band.featured %} band-card--featured{% endif %}">
+          {% if band.card_image %}
+          <div class="band-card__image">
+            <img src="{{ url_for('static', filename='images/' ~ band.card_image) }}"
+                 alt="{{ band.name }}" loading="lazy" />
+          </div>
+          {% else %}
+          <div class="band-card__image band-card__image--placeholder">
+            <span class="band-card__icon">&#127928;</span>
+          </div>
+          {% endif %}
+          <div class="band-card__body">
+            <h3 class="band-card__name">{{ band.name }}</h3>
+            <p class="band-card__role">{{ band.role }}{% if band.status %} &middot; {{ band.status }}{% endif %}</p>
+            <p class="band-card__desc">{{ band.short }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# -- Stages shared marquee -------------------------------- #}
+  {% if music.stages_shared %}
+  <div class="stages-marquee">
+    <div class="container">
+      <p class="stages-marquee__label">Stages &amp; bills shared with</p>
+    </div>
+    <div class="stages-marquee__track">
+      {% for name in music.stages_shared %}
+      <span class="stages-marquee__item">{{ name }}</span>
+      {% endfor %}
+      {% for name in music.stages_shared %}
+      <span class="stages-marquee__item" aria-hidden="true">{{ name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# -- Dev teaser ------------------------------------------- #}
+  <section class="hub-dev" id="dev">
+    <div class="hub-dev__inner">
+      <span class="section-label">{{ hub.dev_teaser.label }}</span>
+      <h2 class="hub-dev__title">{{ hub.dev_teaser.title }}</h2>
+      <p class="hub-dev__body">{{ hub.dev_teaser.body }}</p>
+      <a href="{{ hub.dev_teaser.cta_href }}" class="btn btn--outline">{{ hub.dev_teaser.cta_label }} &rarr;</a>
+    </div>
+  </section>
+
+  {# -- About ----------------------------------------------- #}
+  <section class="hub-about" id="about">
+    <div class="hub-about__inner">
+      <span class="section-label">About</span>
+      {% for para in about.body_paragraphs %}
+      <p class="hub-about__body">{{ para }}</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# -- Contact --------------------------------------------- #}
+  <section class="hub-contact" id="contact">
+    <div class="hub-contact__inner">
+      <h2 class="hub-contact__headline">{{ contact.headline }}</h2>
+      <p class="hub-contact__sub">{{ contact.subheadline }}</p>
+      <a href="mailto:{{ contact.email }}" class="btn btn--primary">{{ contact.email }}</a>
+    </div>
+  </section>
+
+</main>
 {% endblock %}

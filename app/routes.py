@@ -1,44 +1,68 @@
-from flask import Blueprint, render_template, request, jsonify, current_app
+from flask import Blueprint, render_template, abort, request, jsonify, current_app
 from . import content as c
+from . import press_loader
 
 main = Blueprint("main", __name__)
 
 
 @main.context_processor
 def inject_globals():
-    """Inject site-wide content into every template context."""
     return {
         "site": c.SITE,
-        "nav_links": c.NAV_LINKS,
-        "social_links": c.SOCIAL_LINKS,
+        "nav": c.NAV,
         "footer": c.FOOTER,
     }
 
 
 @main.route("/")
-def index():
+def home():
     return render_template(
         "index.html",
-        hero=c.HERO,
-        about=c.ABOUT,
-        identity=c.IDENTITY,
+        hub=c.HUB,
         music=c.MUSIC,
-        projects=c.PROJECTS,
-        museum=c.MUSEUM,
-        timeline=c.TIMELINE,
+        about=c.ABOUT,
         contact=c.CONTACT,
     )
 
 
-@main.route("/contact", methods=["POST"])
-def contact():
-    """
-    Simple contact form endpoint.
+@main.route("/music")
+def music():
+    return render_template(
+        "music.html",
+        music=c.MUSIC,
+    )
 
-    For v1 this logs the submission and returns a JSON response.
-    To wire up email sending, install Flask-Mail and configure MAIL_* env vars.
-    See README for instructions.
-    """
+
+@main.route("/music/<slug>")
+def music_band(slug):
+    band = next((b for b in c.MUSIC["bands"] if b["slug"] == slug), None)
+    if band is None:
+        abort(404)
+    return render_template(
+        "music_band.html",
+        band=band,
+    )
+
+
+@main.route("/tech")
+def tech():
+    return render_template(
+        "tech.html",
+        tech=c.TECH,
+    )
+
+
+@main.route("/press")
+def press():
+    return render_template(
+        "press.html",
+        press_items=press_loader.get_press(),
+        dead_items=press_loader.get_dead_press(),
+    )
+
+
+@main.route("/contact", methods=["POST"])
+def contact_submit():
     data = request.get_json(silent=True) or request.form
 
     name = (data.get("name") or "").strip()
@@ -49,30 +73,18 @@ def contact():
     if not name or not email or not message:
         return jsonify({"success": False, "error": "Please fill in all required fields."}), 400
 
-    # Log submission (Railway captures stdout in logs)
     current_app.logger.info(
         f"[Contact Form] From: {name} <{email}> | Subject: {subject}"
     )
 
-    # ---------------------------------------------------------------------------
-    # Optional: Flask-Mail integration (uncomment when ready)
-    # ---------------------------------------------------------------------------
-    # from flask_mail import Mail, Message
-    # mail = Mail(current_app)
-    # msg = Message(
-    #     subject=f"[Tyler Azure Website] {subject}",
-    #     sender=current_app.config["MAIL_DEFAULT_SENDER"],
-    #     recipients=[current_app.config["CONTACT_EMAIL"]],
-    #     reply_to=email,
-    #     body=f"From: {name} <{email}>\n\n{message}",
-    # )
-    # mail.send(msg)
-    # ---------------------------------------------------------------------------
-
-    return jsonify({"success": True, "message": "Thanks — I'll be in touch soon."})
+    return jsonify({"success": True, "message": "Thanks \u2014 I'll be in touch soon."})
 
 
 @main.route("/health")
 def health():
-    """Health check endpoint for Railway."""
     return jsonify({"status": "ok"}), 200
+
+
+@main.app_errorhandler(404)
+def not_found(e):
+    return render_template("404.html", site=c.SITE, nav=c.NAV, footer=c.FOOTER), 404

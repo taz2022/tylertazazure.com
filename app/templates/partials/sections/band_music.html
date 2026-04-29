@@ -1,0 +1,14 @@
+<section class="band band--music scroll-reveal">
+  <div class="band__inner">
+    <div class="band__num">{{ band.number }}</div>
+    <div class="band__kicker">{{ band.kicker }}</div>
+    <h2 class="band__title">{{ band.title }}</h2>
+    <p class="band__body">{{ band.body }}</p>
+    <div class="band__tags">
+      {% for tag in band.tags %}
+      <span class="band__tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <a href="{{ band.cta_href }}" class="btn btn--chrome">{{ band.cta_label }} &rarr;</a>
+  </div>
+</section>

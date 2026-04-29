@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}{{ band.name }} — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-music.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="music-band-page">
+
+  <section class="band-hero">
+    <div class="band-hero__inner">
+      <a href="/music" class="band-hero__back">&larr; Back to Music</a>
+      <div class="band-hero__kicker">{{ band.role }} &middot; {{ band.status }}</div>
+      <h1 class="band-hero__title">{{ band.name }}</h1>
+      <p class="band-hero__short">{{ band.short }}</p>
+      {% if band.url_external %}
+      <a href="{{ band.url_external }}" class="btn btn--chrome" target="_blank" rel="noopener">
+        Visit {{ band.name }} &rarr;
+      </a>
+      {% endif %}
+    </div>
+  </section>
+
+  {% set refs = get_band_references(band.name) %}
+  {% if refs %}
+  <section class="band-section">
+    <div class="band-section__inner">
+      <h2 class="band-section__title">Official</h2>
+      <ul class="band-reflist">
+        {% for ref in refs %}
+        <li class="band-reflist__item">
+          <a href="{{ ref.url }}" target="_blank" rel="noopener">
+            <span class="band-reflist__outlet">{{ ref.outlet }}</span>
+            <span class="band-reflist__label">{{ ref.title }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+  {% set press = get_press_for_band(band.name) %}
+  {% if press %}
+  <section class="band-section band-section--alt">
+    <div class="band-section__inner">
+      <h2 class="band-section__title">Press</h2>
+      <div class="band-press-grid">
+        {% for item in press %}
+        <article class="press-card">
+          <div class="press-card__meta">
+            <span class="press-card__outlet">{{ item.outlet }}</span>
+            <span class="press-card__type">{{ item.type }}</span>
+          </div>
+          <h3 class="press-card__title">{{ item.title }}</h3>
+          {% if item.pull_quote %}
+          <p class="press-card__quote">&ldquo;{{ item.pull_quote }}&rdquo;</p>
+          {% endif %}
+          <div class="press-card__footer">
+            <span class="press-card__date">{{ item.date }}</span>
+            {% if item.url %}
+            <a href="{{ item.url }}" target="_blank" rel="noopener" class="press-card__link">Read &rarr;</a>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% set listen = get_streaming_links(band.name) %}
+  {% if listen %}
+  <section class="band-section">
+    <div class="band-section__inner">
+      <h2 class="band-section__title">Where to listen</h2>
+      <ul class="band-streaming">
+        {% for link in listen %}
+        <li class="band-streaming__item">
+          <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.outlet }} &rarr;</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}
