@@ -117,7 +117,7 @@ MUSIC = {
             "status": "Occasional",
             "short": "Classic rock variety pulling musicians from Diamondback, Outside Recess, Pandemic, Chaser.",
             "url_external": "",
-            "card_image": "music/bands/raised-on-radio.jpg",
+            "card_image": "music/bands/RaisedOnRadio.webp",
             "featured": False,
         },
         {
@@ -148,16 +148,6 @@ MUSIC = {
             "short": "The next evolution \u2014 a band born out of L.H.D. in our twenties.",
             "url_external": "https://www.facebook.com/dirteecircusband/",
             "card_image": "music/bands/Dirtee_Circus.jpg",
-            "featured": False,
-        },
-        {
-            "slug": "lhd",
-            "name": "L.H.D.",
-            "role": "Lead Guitar",
-            "status": "Past",
-            "short": "One of the first bands. Where it all started as a teenager.",
-            "url_external": "",
-            "card_image": "",
             "featured": False,
         },
         {
