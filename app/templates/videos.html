@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Videos — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-hub.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="videos-page">
+
+  <section class="videos-hero">
+    <div class="videos-hero__inner">
+      <div class="section-label">Watch</div>
+      <h1 class="videos-hero__title">Music Videos</h1>
+    </div>
+  </section>
+
+  <section class="videos-grid-section">
+    <div class="videos-grid-wrap">
+      <div class="videos-grid">
+        {% for video in videos %}
+        <div class="video-card">
+          <div class="video-card__embed">
+            <iframe src="https://www.youtube.com/embed/{{ video.id }}"
+                    title="{{ video.title }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"></iframe>
+          </div>
+          <div class="video-card__info">
+            <h3 class="video-card__title">{{ video.title }}</h3>
+            {% if video.band %}
+            <span class="video-card__band">{{ video.band }}</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

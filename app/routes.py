@@ -38,9 +38,19 @@ def music_band(slug):
     band = next((b for b in c.MUSIC["bands"] if b["slug"] == slug), None)
     if band is None:
         abort(404)
+    band_videos = [v for v in c.VIDEOS if v["band"] == band["name"]]
     return render_template(
         "music_band.html",
         band=band,
+        band_videos=band_videos,
+    )
+
+
+@main.route("/videos")
+def videos():
+    return render_template(
+        "videos.html",
+        videos=c.VIDEOS,
     )
 
 

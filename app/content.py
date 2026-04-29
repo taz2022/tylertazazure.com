@@ -25,6 +25,7 @@ SITE = {
 NAV = {
     "left": [
         {"label": "Music", "href": "/music"},
+        {"label": "Videos", "href": "/videos"},
         {"label": "Shows", "href": "/shows"},
     ],
     "right": [
@@ -74,7 +75,7 @@ MUSIC = {
             "role": "Lead Guitar",
             "status": "2017\u2013",
             "short": "Hard rock from Las Vegas, signed to Sony RED Music. Debut album Mask (2018).",
-            "url_external": "https://coderedriot.com",
+            "url_external": "https://linktr.ee/coderedriot",
             "card_image": "music/bands/code red riot.jpg",
             "featured": True,
         },
@@ -176,6 +177,19 @@ MUSIC = {
         "music/gallery/preview (9).webp",
     ],
 }
+
+# ───────────────────────────────────────────────────────────
+# VIDEOS — /videos page + band sub-pages
+# ───────────────────────────────────────────────────────────
+VIDEOS = [
+    {"id": "O1O3e3SnuN8", "title": "Bulletproof (Official Video)", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "M31OIYEujcA", "title": "Living Low", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "w7Qan1Vd8BA", "title": "Slide", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "aMLCKKeZDSA", "title": "Killing The Kings (Official Video)", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "Bq3AUO0Lk6Q", "title": "Ghost (Lyric Video)", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "qrV4VrMph_o", "title": "Handle This (Lyric Video)", "band": "Code Red Riot", "category": "music_video"},
+    {"id": "nxKLCgVkv2k", "title": "Bulletproof \u2014 Acoustic Live (Rock 94\u00bd, Spokane)", "band": "Code Red Riot", "category": "live"},
+]
 
 # ───────────────────────────────────────────────────────────
 # SHOWS — /shows page content
