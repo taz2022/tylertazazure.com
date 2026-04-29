@@ -52,14 +52,6 @@ def shows():
     )
 
 
-@main.route("/tech")
-def tech():
-    return render_template(
-        "tech.html",
-        tech=c.TECH,
-    )
-
-
 @main.route("/press")
 def press():
     return render_template(

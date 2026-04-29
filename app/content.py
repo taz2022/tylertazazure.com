@@ -10,23 +10,22 @@ press_loader.py and is filtered by type at render time.
 # ───────────────────────────────────────────────────────────
 SITE = {
     "title": "Tyler Azure",
-    "tagline": "Guitarist and developer.",
+    "tagline": "Guitarist based in Minnesota.",
     "description": (
-        "Tyler Azure is a guitarist and developer based in Minnesota. "
-        "Lead guitar in Pandemic and Code Red Riot. Builder of Azure Archives."
+        "Tyler Azure is a guitarist based in Minnesota. "
+        "Lead guitar in Pandemic, Code Red Riot, and more."
     ),
     "contact_email": "azuretaz@gmail.com",  # TODO: confirm
     "base_url": "https://tylertazazure.com",
 }
 
 # ───────────────────────────────────────────────────────────
-# NAV — simplified to Music · Tech · Museum | About · Press · Contact
+# NAV
 # ───────────────────────────────────────────────────────────
 NAV = {
     "left": [
         {"label": "Music", "href": "/music"},
         {"label": "Shows", "href": "/shows"},
-        {"label": "Dev",   "href": "/tech"},
     ],
     "right": [
         {"label": "About",   "href": "/#about"},
@@ -41,19 +40,8 @@ NAV = {
 HUB = {
     "hero": {
         "name": "Tyler Azure",
-        "oneliner": "Guitarist and developer based in Minnesota.",
-        "pill": "Available for projects",
-    },
-    "dev_teaser": {
-        "label": "Also building",
-        "title": "Software & Development",
-        "body": (
-            "When I'm not on stage I build software. Currently developing Azure Archives "
-            "\u2014 a SaaS platform for small museums \u2014 and doing web development with "
-            "Flask, Postgres, and Railway."
-        ),
-        "cta_label": "See the dev work",
-        "cta_href": "/tech",
+        "oneliner": "Guitarist based in Minnesota.",
+        "pill": "Available for booking",
     },
 }
 
@@ -251,129 +239,6 @@ SHOWS = {
 }
 
 # ───────────────────────────────────────────────────────────
-# TECH — /tech discipline page content
-# ───────────────────────────────────────────────────────────
-TECH = {
-    "hero": {
-        "title": "Development",
-        "subtitle": "Full-stack software and museum technology.",
-        "intro": (
-            "I build practical digital tools \u2014 SaaS products, websites, and systems "
-            "that solve real problems cleanly. Currently focused on museum technology."
-        ),
-    },
-    "museum_note": {
-        "label": "Archival background",
-        "body": (
-            "I also work with small historical societies and museums on digitization, "
-            "finding aids, and collection modernization \u2014 bringing modern tools to "
-            "centuries-old collections without losing what makes them worth preserving."
-        ),
-    },
-    "flagship": {
-        "title": "Azure Archives",
-        "slug": "azure-archives",
-        "subtitle": "Collections management built for small museums",
-        "tagline": "Simpler than PastPerfect. More powerful than a spreadsheet.",
-        "url_external": "https://azurearchives.com",
-        "demo_url": "https://demo.azurearchives.com",
-        "stack": ["Flask", "PostgreSQL", "Jinja2", "Railway", "Backblaze B2", "Stripe", "OpenAI"],
-        "problem": (
-            "Small museums and historical societies are stuck between two bad options: "
-            "legacy desktop software like PastPerfect that\u2019s expensive and dated, or a "
-            "patchwork of spreadsheets that lose data and can\u2019t scale. Neither gives "
-            "the public a way to actually see the collection."
-        ),
-        "approach": (
-            "Azure Archives is a web-first SaaS with full audit trail, role-based "
-            "approval workflows, DACS-compliant archival fields, and a public research "
-            "portal. AI tooling (slip scanning, OCR, Story Composer) handles tedious "
-            "cataloging so volunteers focus on the collection itself."
-        ),
-        "features": [
-            {"icon": "\U0001f4e5", "title": "Donation Intake", "text": "Log donations by hand, import from Excel, or scan physical slips with vision AI."},
-            {"icon": "\U0001f3db", "title": "Cataloging", "text": "Photos, provenance, condition, location. Role-based approval."},
-            {"icon": "\U0001f4c2", "title": "DACS Archives", "text": "Finding aids, format tracking, full-text search."},
-            {"icon": "\U0001f465", "title": "Memberships", "text": "Tiers, renewals, payments, public signup."},
-            {"icon": "\U0001f310", "title": "Research Portal", "text": "Share the collection online. Per-item visibility."},
-            {"icon": "\U0001f916", "title": "AI Tools", "text": "Slip scanning, handwritten OCR, AI-drafted stories."},
-        ],
-        "pricing_tiers": [
-            {"name": "Free Trial", "price": "$0", "period": "30 days", "note": "All features, 10GB storage."},
-            {"name": "Collections", "price": "$790", "period": "/year", "note": "Everything a small museum needs."},
-            {"name": "Collections + Research", "price": "$1,190", "period": "/year", "note": "Adds genealogy indexes."},
-            {"name": "Enterprise", "price": "from $2,990", "period": "/year", "note": "Unlimited storage, API access."},
-        ],
-        "differentiators": [
-            "Grant-fundable \u2014 eligible for MN Legacy Grants and IMLS Inspire! grants.",
-            "No per-record fees. No item caps. Unlimited users.",
-            "AI tools built in, not bolted on.",
-            "Staff always reviews before saves \u2014 AI assists, humans decide.",
-        ],
-        "screenshots": [
-            "projects/azure-archives/dashboard.jpg",
-            "projects/azure-archives/cataloging.jpg",
-            "projects/azure-archives/public-portal.jpg",
-            "projects/azure-archives/story-composer.jpg",
-        ],
-        "cta_text": "Start a free 30-day trial",
-        "cta_url": "https://azurearchives.com/signup",
-    },
-    "other_projects": [
-        {
-            "title": "tylertazazure.com",
-            "description": "This site. Flask, Railway, Backblaze. The codebase you\u2019re reading.",
-            "stack": ["Flask", "Jinja2", "Railway"],
-            "url": "",
-            "github": "https://github.com/taz2022/tylertazazure.com",
-        },
-    ],
-}
-
-# ───────────────────────────────────────────────────────────
-# MUSEUM — /museum discipline page content
-# ───────────────────────────────────────────────────────────
-MUSEUM = {
-    "hero": {
-        "title": "Museum",
-        "subtitle": "Archival and preservation work.",
-        "intro": (
-            "I work with small historical societies and museums on digitization, "
-            "finding aids, and collection modernization. Bringing modern tools to "
-            "centuries-old collections without losing what makes them worth preserving."
-        ),
-    },
-    "work_areas": [
-        {
-            "title": "Digitization strategy",
-            "body": (
-                "Helping small institutions move from paper and spreadsheets to "
-                "DACS-compliant digital records without losing provenance or context."
-            ),
-        },
-        {
-            "title": "Platform migration",
-            "body": (
-                "Moving collections off legacy software (PastPerfect, various custom "
-                "Access databases) into modern systems \u2014 including Azure Archives, but "
-                "also advising on open-source alternatives when appropriate."
-            ),
-        },
-        {
-            "title": "Finding aids & access",
-            "body": (
-                "Writing finding aids and public-access layers that let the community "
-                "actually use what an institution has spent decades preserving."
-            ),
-        },
-    ],
-    "quote": (
-        "Good archives don\u2019t just store the past. They make it usable."
-    ),
-    "collaborations": [],
-}
-
-# ───────────────────────────────────────────────────────────
 # ABOUT — lives at /#about anchor on homepage
 # ───────────────────────────────────────────────────────────
 ABOUT = {
@@ -385,16 +250,14 @@ ABOUT = {
             "for good."
         ),
         (
-            "For more than a decade I\u2019ve worked across three disciplines that "
-            "shouldn\u2019t overlap but do: live music, software development, and archival "
-            "work with small museums. Music taught me discipline and how to read a "
-            "room. Development taught me systems thinking and the satisfaction of "
-            "solving real problems. Museum work taught me respect for story, structure, "
-            "and the long view."
+            "Since then I\u2019ve played lead guitar across rock, alt-rock, tribute, and "
+            "live-event work \u2014 from Minneapolis rooms to the Las Vegas strip. "
+            "I\u2019ve shared stages with Breaking Benjamin, Steel Panther, Papa Roach, "
+            "and more."
         ),
         (
-            "Together they make me a different kind of professional \u2014 one who can "
-            "perform, build, and preserve with equal seriousness."
+            "Currently playing with Pandemic on the central Minnesota circuit "
+            "and Taz & T-Bone as an acoustic duo."
         ),
     ],
 }
@@ -404,9 +267,7 @@ ABOUT = {
 # ───────────────────────────────────────────────────────────
 CONTACT = {
     "headline": "Let\u2019s Work Together",
-    "subheadline": (
-        "Booking, development, or museum technology \u2014 happy to hear what you\u2019re building."
-    ),
+    "subheadline": "Booking, session work, or just want to connect \u2014 reach out.",
     "email": SITE["contact_email"],
 }
 
@@ -414,9 +275,8 @@ CONTACT = {
 # FOOTER
 # ───────────────────────────────────────────────────────────
 FOOTER = {
-    "tagline": "Guitarist and developer.",
+    "tagline": "Guitarist based in Minnesota.",
     "social_links": [
-        {"platform": "GitHub",    "url": "https://github.com/taz2022", "icon": "github"},
         {"platform": "Instagram", "url": "https://www.instagram.com/tazazure/", "icon": "instagram"},
     ],
 }
