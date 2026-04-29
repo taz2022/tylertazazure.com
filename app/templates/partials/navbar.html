@@ -1,20 +1,15 @@
 <header class="navbar" id="navbar" role="banner">
   <div class="navbar__inner">
-    <nav class="navbar__group navbar__group--left" aria-label="Primary left">
-      <ul class="navbar__links" role="list">
-        {% for item in nav.left %}
-        <li><a href="{{ item.href }}" class="navbar__link">{{ item.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-
     <a href="/" class="navbar__brand" aria-label="Tyler Azure — Home">
       <img src="{{ url_for('static', filename='images/logo.png') }}"
            alt="Tyler Azure" class="navbar__logo" />
     </a>
 
-    <nav class="navbar__group navbar__group--right" aria-label="Primary right">
+    <nav class="navbar__nav" aria-label="Primary">
       <ul class="navbar__links" role="list">
+        {% for item in nav.left %}
+        <li><a href="{{ item.href }}" class="navbar__link">{{ item.label }}</a></li>
+        {% endfor %}
         {% for item in nav.right %}
         <li><a href="{{ item.href }}" class="navbar__link">{{ item.label }}</a></li>
         {% endfor %}

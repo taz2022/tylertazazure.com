@@ -21,12 +21,18 @@
       <div class="shows-grid">
         {% for show in shows.upcoming %}
         <div class="show-card">
-          <div class="show-card__date">{{ show.date }}</div>
+          <div class="show-card__date">
+            <span class="show-card__month">{{ show.date[5:7] }}/{{ show.date[8:10] }}</span>
+            <span class="show-card__year">{{ show.date[:4] }}</span>
+          </div>
           <div class="show-card__details">
             <h3 class="show-card__venue">{{ show.venue }}</h3>
             <p class="show-card__city">{{ show.city }}</p>
             {% if show.band %}
             <span class="show-card__band">{{ show.band }}</span>
+            {% endif %}
+            {% if show.time %}
+            <span class="show-card__time">{{ show.time }}</span>
             {% endif %}
           </div>
           {% if show.url %}
