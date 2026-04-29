@@ -289,10 +289,10 @@ button {
 /* ─────────────────────────────────────────────────────────── */
 
 :root {
-  --navbar-h: 200px;
-  --navbar-h-scrolled: 120px;
-  --navbar-logo-h: 180px;
-  --navbar-logo-h-scrolled: 100px;
+  --navbar-h: 100px;
+  --navbar-h-scrolled: 70px;
+  --navbar-logo-h: 80px;
+  --navbar-logo-h-scrolled: 50px;
 }
 
 .navbar {
@@ -503,10 +503,10 @@ button {
 /* ── Responsive navbar ────────────────────────────────────── */
 @media (max-width: 900px) {
   :root {
-    --navbar-h: 140px;
-    --navbar-h-scrolled: 90px;
-    --navbar-logo-h: 120px;
-    --navbar-logo-h-scrolled: 70px;
+    --navbar-h: 80px;
+    --navbar-h-scrolled: 60px;
+    --navbar-logo-h: 60px;
+    --navbar-logo-h-scrolled: 40px;
   }
 
   .navbar__nav { display: none; }
