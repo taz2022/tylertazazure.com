@@ -289,9 +289,9 @@ button {
 /* ─────────────────────────────────────────────────────────── */
 
 :root {
-  --navbar-h: 180px;
+  --navbar-h: 240px;
   --navbar-h-scrolled: 100px;
-  --navbar-logo-h: 160px;
+  --navbar-logo-h: 220px;
   --navbar-logo-h-scrolled: 80px;
 }
 
@@ -502,9 +502,9 @@ button {
 /* ── Responsive navbar ────────────────────────────────────── */
 @media (max-width: 900px) {
   :root {
-    --navbar-h: 120px;
+    --navbar-h: 160px;
     --navbar-h-scrolled: 80px;
-    --navbar-logo-h: 100px;
+    --navbar-logo-h: 140px;
     --navbar-logo-h-scrolled: 60px;
   }
 

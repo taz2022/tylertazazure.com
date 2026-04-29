@@ -23,7 +23,7 @@
 
 /* ── Hub Hero ─────────────────────────────────────────────── */
 .hub-hero {
-  min-height: 100svh;
+  min-height: 85svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@
 }
 
 .hub-hero--has-bg {
-  background: url('/static/images/hero-bg.webp') center center / cover no-repeat;
+  background: url('/static/images/hero-bg.webp') center 40% / cover no-repeat;
 }
 
 .hub-hero__overlay {
@@ -354,9 +354,9 @@
 }
 
 .shows-table__date {
-  color: var(--color-gold-light) !important;
+  color: var(--color-text) !important;
   font-weight: 600;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: var(--text-base) !important;
 }
 
