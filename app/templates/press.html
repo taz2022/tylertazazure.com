@@ -9,19 +9,20 @@
 
   <header class="press-page__hero">
     <div class="press-page__inner">
-      <div class="label">Press</div>
+      <div class="section-label">Press</div>
       <h1 class="press-page__title">Coverage, interviews, and reviews.</h1>
-      <p class="press-page__sub">
-        A selection of press from across the music career &mdash; spanning Pandemic, Code Red Riot, Hairball, La Madness, and more.
-      </p>
     </div>
   </header>
 
   <section class="press-page__grid-wrap">
     <div class="press-grid">
       {% for item in press_items %}
-      <article class="press-card">
-        <div class="press-card__meta">
+      {% if item.url %}
+      <a href="{{ item.url }}" target="_blank" rel="noopener" class="press-card press-card--link">
+      {% else %}
+      <div class="press-card">
+      {% endif %}
+        <div class="press-card__top">
           <span class="press-card__outlet">{{ item.outlet }}</span>
           <span class="press-card__type">{{ item.type }}</span>
         </div>
@@ -29,14 +30,15 @@
         {% if item.pull_quote %}
         <p class="press-card__quote">&ldquo;{{ item.pull_quote }}&rdquo;</p>
         {% endif %}
-        <div class="press-card__footer">
-          <span class="press-card__date">{{ item.date }}</span>
+        <div class="press-card__bottom">
           <span class="press-card__band">{{ item.band }}</span>
-          {% if item.url %}
-          <a href="{{ item.url }}" target="_blank" rel="noopener" class="press-card__link">Read &rarr;</a>
-          {% endif %}
+          <span class="press-card__date">{{ item.date }}</span>
         </div>
-      </article>
+      {% if item.url %}
+      </a>
+      {% else %}
+      </div>
+      {% endif %}
       {% endfor %}
     </div>
   </section>

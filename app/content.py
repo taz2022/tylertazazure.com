@@ -258,19 +258,50 @@ ABOUT = {
     "headline": "About",
     "body_paragraphs": [
         (
-            "I grew up in Sauk Rapids, Minnesota. I started playing guitar at 13 after "
-            "my dad took me to a Prince concert \u2014 watching Purple Rain live hooked me "
-            "for good."
+            "Tyler \u201cTaz\u201d Azure is a self-taught guitarist, songwriter, and performer "
+            "from Sauk Rapids, Minnesota. He first picked up the guitar at age 13, "
+            "inspired by the sound, style, and stage presence of artists like Prince, "
+            "Slash, Joe Perry, and Jimmy Page. What started as a teenage obsession "
+            "quickly became a lifelong pursuit, shaped by countless hours of learning "
+            "by ear, chasing tone, and studying the players who made the guitar feel "
+            "larger than life."
         ),
         (
-            "Since then I\u2019ve played lead guitar across rock, alt-rock, tribute, and "
-            "live-event work \u2014 from Minneapolis rooms to the Las Vegas strip. "
-            "I\u2019ve shared stages with Breaking Benjamin, Steel Panther, Papa Roach, "
-            "and more."
+            "At just 14 years old, Tyler found himself onstage for the first time "
+            "during an impromptu jam in North Dakota. That moment lit the fuse. From "
+            "there, he began forming bands, writing music, and playing shows across "
+            "the Midwest, steadily building a reputation as a high-energy guitarist "
+            "with a natural feel for rock, blues, and live performance."
         ),
         (
-            "Currently playing with Pandemic on the central Minnesota circuit "
-            "and Taz & T-Bone as an acoustic duo."
+            "In 2016, Tyler moved to Las Vegas to join drummer Corky Gainsford in the "
+            "original rock band Code Red Riot. The band signed with Sony Red and toured "
+            "nationally, giving Tyler the chance to perform across the country and "
+            "sharpen his craft on bigger stages. During that time, he continued to grow "
+            "as both a performer and songwriter, blending raw rock influence with a "
+            "modern, hard-hitting edge."
+        ),
+        (
+            "Over the years, Tyler has performed with and filled in for a wide range "
+            "of acts, from original projects to major tribute and cover bands. His "
+            "experience includes playing with bands such as Dirtee Circus, Hairball, "
+            "Code Red Riot, La Madness, Almost Cooper, and Pandemic. Whether stepping "
+            "into a high-pressure fill-in role or leading a project of his own, Tyler "
+            "brings preparation, grit, instinct, and stage presence to every performance."
+        ),
+        (
+            "His playing blends classic rock swagger, blues-based phrasing, melodic "
+            "leads, and a stage-first approach built from years of live experience. "
+            "While his influences can be heard in the fire of his solos and the attitude "
+            "of his rhythm playing, Tyler has developed a voice of his own: loud, "
+            "melodic, restless, and built for the stage."
+        ),
+        (
+            "Today, Tyler continues to write, record, and perform throughout Minnesota "
+            "and the Midwest, playing solo acoustic shows, duo performances, full-band "
+            "gigs, tribute acts, and fill-in guitar work. Whether performing in an "
+            "intimate acoustic room or on a full-scale rock stage, Tyler brings the "
+            "same fire, feel, and commitment to every show."
         ),
     ],
 }
