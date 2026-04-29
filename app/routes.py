@@ -44,6 +44,14 @@ def music_band(slug):
     )
 
 
+@main.route("/shows")
+def shows():
+    return render_template(
+        "shows.html",
+        shows=c.SHOWS,
+    )
+
+
 @main.route("/tech")
 def tech():
     return render_template(

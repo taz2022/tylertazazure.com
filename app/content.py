@@ -25,6 +25,7 @@ SITE = {
 NAV = {
     "left": [
         {"label": "Music", "href": "/music"},
+        {"label": "Shows", "href": "/shows"},
         {"label": "Dev",   "href": "/tech"},
     ],
     "right": [
@@ -186,6 +187,21 @@ MUSIC = {
         "music/gallery/preview (7).webp",
         "music/gallery/preview (8).webp",
         "music/gallery/preview (9).webp",
+    ],
+}
+
+# ───────────────────────────────────────────────────────────
+# SHOWS — /shows page content
+# ───────────────────────────────────────────────────────────
+SHOWS = {
+    "hero": {
+        "title": "Shows",
+        "subtitle": "Upcoming dates",
+        "intro": "Catch me live. Check back for new dates.",
+    },
+    "upcoming": [
+        # Add shows here as they come in:
+        # {"date": "2026-05-17", "venue": "The Red Carpet", "city": "St. Cloud, MN", "band": "Pandemic", "url": ""},
     ],
 }
 

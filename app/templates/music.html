@@ -26,7 +26,7 @@
         <a href="/music/{{ band.slug }}" class="band-card {% if band.featured %}band-card--featured{% endif %}">
           {% if band.card_image %}
           <div class="band-card__image">
-            <img src="{{ asset_url(band.card_image) }}" alt="{{ band.name }}" loading="lazy" />
+            <img src="{{ url_for('static', filename='images/' ~ band.card_image) }}" alt="{{ band.name }}" loading="lazy" />
           </div>
           {% else %}
           <div class="band-card__image band-card__image--placeholder">
@@ -69,7 +69,7 @@
       <div class="music-gallery">
         {% for img in music.gallery_images %}
         <div class="music-gallery__item">
-          <img src="{{ asset_url(img) }}" alt="Performance photo" loading="lazy" />
+          <img src="{{ url_for('static', filename='images/' ~ img) }}" alt="Performance photo" loading="lazy" />
         </div>
         {% endfor %}
       </div>

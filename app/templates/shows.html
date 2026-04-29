@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Shows — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-hub.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="shows-page">
+
+  <section class="shows-hero">
+    <div class="shows-hero__inner">
+      <div class="section-label">{{ shows.hero.subtitle }}</div>
+      <h1 class="shows-hero__title">{{ shows.hero.title }}</h1>
+      <p class="shows-hero__intro">{{ shows.hero.intro }}</p>
+    </div>
+  </section>
+
+  <section class="shows-list">
+    <div class="shows-list__inner">
+      {% if shows.upcoming %}
+      <div class="shows-grid">
+        {% for show in shows.upcoming %}
+        <div class="show-card">
+          <div class="show-card__date">{{ show.date }}</div>
+          <div class="show-card__details">
+            <h3 class="show-card__venue">{{ show.venue }}</h3>
+            <p class="show-card__city">{{ show.city }}</p>
+            {% if show.band %}
+            <span class="show-card__band">{{ show.band }}</span>
+            {% endif %}
+          </div>
+          {% if show.url %}
+          <a href="{{ show.url }}" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Tickets &rarr;</a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="shows-empty">
+        <p>No upcoming shows scheduled right now. Check back soon.</p>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+</main>
+{% endblock %}
