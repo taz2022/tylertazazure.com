@@ -168,7 +168,6 @@ MUSIC = {
     ],
     "gallery_images": [
         "music/gallery/preview.webp",
-        "music/gallery/preview (1).webp",
         "music/gallery/preview (2).webp",
         "music/gallery/preview (4).webp",
         "music/gallery/preview (5).webp",
@@ -198,7 +197,6 @@ GALLERY = {
         "gallery/Taz&Tbone1.jpg",
         "gallery/Taz&treybenefit.jpg",
         "music/gallery/preview.webp",
-        "music/gallery/preview (1).webp",
         "music/gallery/preview (2).webp",
         "music/gallery/preview (4).webp",
         "music/gallery/preview (5).webp",

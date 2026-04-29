@@ -18,7 +18,7 @@
     <div class="gallery-grid-wrap">
       <div class="gallery-grid">
         {% for img in gallery.images %}
-        <div class="gallery-grid__item">
+        <div class="gallery-grid__item" data-full="{{ url_for('static', filename='images/' ~ img) }}">
           <img src="{{ url_for('static', filename='images/' ~ img) }}"
                alt="Live photo" loading="lazy" />
         </div>
@@ -27,5 +27,43 @@
     </div>
   </section>
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="Full size photo" />
+  </div>
+
 </main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function initLightbox() {
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var items = document.querySelectorAll('.gallery-grid__item');
+
+  items.forEach(function(item) {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', function() {
+      lightboxImg.src = item.getAttribute('data-full');
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 {% endblock %}
