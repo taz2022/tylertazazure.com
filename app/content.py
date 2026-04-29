@@ -24,13 +24,14 @@ SITE = {
 # ───────────────────────────────────────────────────────────
 NAV = {
     "left": [
-        {"label": "Music", "href": "/music"},
-        {"label": "Videos", "href": "/videos"},
-        {"label": "Shows", "href": "/shows"},
+        {"label": "About",   "href": "/#about"},
+        {"label": "Music",   "href": "/music"},
+        {"label": "Videos",  "href": "/videos"},
+        {"label": "Shows",   "href": "/shows"},
     ],
     "right": [
-        {"label": "About",   "href": "/#about"},
         {"label": "Press",   "href": "/press"},
+        {"label": "Gallery", "href": "/gallery"},
         {"label": "Contact", "href": "/#contact"},
     ],
 }
@@ -166,6 +167,36 @@ MUSIC = {
         "Las Rageous Festival", "Whisky A Go Go", "House of Blues", "First Avenue",
     ],
     "gallery_images": [
+        "music/gallery/preview.webp",
+        "music/gallery/preview (1).webp",
+        "music/gallery/preview (2).webp",
+        "music/gallery/preview (4).webp",
+        "music/gallery/preview (5).webp",
+        "music/gallery/preview (6).webp",
+        "music/gallery/preview (7).webp",
+        "music/gallery/preview (8).webp",
+        "music/gallery/preview (9).webp",
+    ],
+}
+
+# ───────────────────────────────────────────────────────────
+# GALLERY — /gallery page
+# ───────────────────────────────────────────────────────────
+GALLERY = {
+    "hero": {
+        "title": "Gallery",
+        "subtitle": "Live photos",
+    },
+    "images": [
+        "gallery/taz_live.jpg",
+        "gallery/taz_live_2.jpg",
+        "gallery/taz_CRR.jpg",
+        "gallery/coderedriot.jpg",
+        "gallery/taz_hairball.jpg",
+        "gallery/tazbenefit.jpg",
+        "gallery/tazriver.jpg",
+        "gallery/Taz&Tbone1.jpg",
+        "gallery/Taz&treybenefit.jpg",
         "music/gallery/preview.webp",
         "music/gallery/preview (1).webp",
         "music/gallery/preview (2).webp",

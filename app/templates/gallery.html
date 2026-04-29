@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Gallery — {{ site.title }}{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page-hub.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="gallery-page">
+
+  <section class="gallery-hero">
+    <div class="gallery-hero__inner">
+      <div class="section-label">{{ gallery.hero.subtitle }}</div>
+      <h1 class="gallery-hero__title">{{ gallery.hero.title }}</h1>
+    </div>
+  </section>
+
+  <section class="gallery-grid-section">
+    <div class="gallery-grid-wrap">
+      <div class="gallery-grid">
+        {% for img in gallery.images %}
+        <div class="gallery-grid__item">
+          <img src="{{ url_for('static', filename='images/' ~ img) }}"
+               alt="Live photo" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

@@ -46,6 +46,14 @@ def music_band(slug):
     )
 
 
+@main.route("/gallery")
+def gallery():
+    return render_template(
+        "gallery.html",
+        gallery=c.GALLERY,
+    )
+
+
 @main.route("/videos")
 def videos():
     return render_template(
