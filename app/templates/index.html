@@ -13,7 +13,6 @@
     <div class="hub-hero__inner">
       <span class="pill pill--amber">{{ hub.hero.pill }}</span>
       <h1 class="hub-hero__name">{{ hub.hero.name }}</h1>
-      <p class="hub-hero__oneliner">{{ hub.hero.oneliner }}</p>
     </div>
     <div class="hub-hero__scroll-indicator">Scroll</div>
   </section>
@@ -82,6 +81,13 @@
       <h2 class="hub-contact__headline">{{ contact.headline }}</h2>
       <p class="hub-contact__sub">{{ contact.subheadline }}</p>
       <a href="mailto:{{ contact.email }}" class="btn btn--primary">{{ contact.email }}</a>
+      {% if footer.social_links %}
+      <div class="hub-contact__socials">
+        {% for link in footer.social_links %}
+        <a href="{{ link.url }}" class="social-link" target="_blank" rel="noopener">{{ link.platform }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
 

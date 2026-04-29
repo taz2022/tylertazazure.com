@@ -39,8 +39,7 @@ NAV = {
 # ───────────────────────────────────────────────────────────
 HUB = {
     "hero": {
-        "name": "Tyler Azure",
-        "oneliner": "Guitarist based in Minnesota.",
+        "name": "Tyler \u201cTaz\u201d Azure",
         "pill": "Available for booking",
     },
 }
@@ -277,6 +276,8 @@ CONTACT = {
 FOOTER = {
     "tagline": "Guitarist based in Minnesota.",
     "social_links": [
-        {"platform": "Instagram", "url": "https://www.instagram.com/tazazure/", "icon": "instagram"},
+        {"platform": "Facebook", "url": "https://www.facebook.com/TylerAzure/", "icon": "facebook"},
+        {"platform": "Instagram", "url": "https://www.instagram.com/azure_tyler/", "icon": "instagram"},
+        {"platform": "TikTok", "url": "https://www.tiktok.com/@tyler_taz_azure", "icon": "tiktok"},
     ],
 }

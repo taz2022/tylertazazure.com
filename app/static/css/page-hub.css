@@ -208,6 +208,13 @@
   margin: 0 0 2rem 0;
 }
 
+.hub-contact__socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: 2rem;
+}
+
 /* ── Press page (also uses page-hub.css) ──────────────────── */
 .press-page {
   padding-top: var(--navbar-h);
