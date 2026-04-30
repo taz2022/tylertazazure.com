@@ -45,7 +45,7 @@ HUB = {
         "pill": "Available for booking",
     },
     "streaming": {
-        "spotify_embed_url": "",  # TODO: fill in (Spotify artist embed URL)
+        "spotify_embed_url": "https://open.spotify.com/embed/artist/5rak7UsAIT3HqwMtXE5IFQ",
         "platforms": [
             {"name": "Spotify",       "url": "", "icon": "spotify"},       # TODO: fill in
             {"name": "Apple Music",   "url": "", "icon": "apple-music"},   # TODO: fill in
@@ -101,7 +101,7 @@ MUSIC = {
             "card_image": "music/bands/code red riot.jpg",
             "featured": True,
             "streaming": {
-                "spotify_embed_url": "https://open.spotify.com/embed/artist/5lBCPOhmYMGnfrFaXcSCaB",  # TODO: confirm
+                "spotify_embed_url": "https://open.spotify.com/embed/artist/5rak7UsAIT3HqwMtXE5IFQ",
                 "platforms": [
                     {"name": "Spotify",     "url": "https://open.spotify.com/artist/5lBCPOhmYMGnfrFaXcSCaB", "icon": "spotify"},       # TODO: confirm
                     {"name": "Apple Music", "url": "", "icon": "apple-music"},   # TODO: fill in
