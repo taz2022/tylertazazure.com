@@ -145,7 +145,7 @@ MUSIC = {
             "role": "Lead Guitar, Backing Vocals",
             "status": "2013 era",
             "short": "Minneapolis indie grind blues. Debut album Chances Are. Opened for Papa Roach, Fuel, Tantric.",
-            "url_external": "",
+            "url_external": "https://lamadnessmusic.com/",
             "card_image": "music/bands/la madness.jpg",
             "featured": False,
             "streaming": {

@@ -52,13 +52,15 @@
 }
 
 .hub-hero__name {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-family: var(--font-body);
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
   font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-text);
   margin: 0 0 1.5rem 0;
+  white-space: nowrap;
 }
 
 .hub-hero__oneliner {
