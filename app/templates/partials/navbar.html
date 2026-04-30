@@ -19,7 +19,9 @@
     {% if footer.social_links %}
     <div class="navbar__socials">
       {% for link in footer.social_links %}
-      <a href="{{ link.url }}" class="navbar__social" target="_blank" rel="noopener" aria-label="{{ link.platform }}">{{ link.platform }}</a>
+      <a href="{{ link.url }}" class="navbar__social" target="_blank" rel="noopener" aria-label="{{ link.platform }}">
+        <img src="{{ url_for('static', filename='images/streaming/' ~ link.icon ~ '.svg') }}" alt="{{ link.platform }}" class="navbar__social-icon" />
+      </a>
       {% endfor %}
     </div>
     {% endif %}

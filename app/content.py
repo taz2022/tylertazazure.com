@@ -256,7 +256,12 @@ MUSIC = {
     "stages_shared": [
         "Breaking Benjamin", "Eagles of Death Metal", "Steel Panther", "Fozzy",
         "Papa Roach", "Fuel", "Tantric", "Gemini Syndrome",
-        "Las Rageous Festival", "Whisky A Go Go", "House of Blues", "First Avenue",
+        "Motley Crue", "Buckcherry", "Soul Asylum", "Halestorm",
+        "Bret Michaels", "Rob Zombie",
+        "Las Rageous Festival", "Rockfest", "Moondance Jam", "Halfway Jam",
+        "Rock USA", "Rocklahoma",
+        "Whisky A Go Go", "House of Blues", "First Avenue", "Angel Stadium",
+        "Mill City Nights", "The Myth", "Rock The Riverside", "The Machine Shop",
     ],
     "gallery_images": [
         "music/gallery/preview.webp",

@@ -170,7 +170,9 @@
       {% if footer.social_links %}
       <div class="hub-contact__socials">
         {% for link in footer.social_links %}
-        <a href="{{ link.url }}" class="social-link" target="_blank" rel="noopener">{{ link.platform }}</a>
+        <a href="{{ link.url }}" class="social-link" target="_blank" rel="noopener" aria-label="{{ link.platform }}">
+          <img src="{{ url_for('static', filename='images/streaming/' ~ link.icon ~ '.svg') }}" alt="{{ link.platform }}" class="social-link__icon" />
+        </a>
         {% endfor %}
       </div>
       {% endif %}
