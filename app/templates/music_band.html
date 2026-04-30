@@ -117,6 +117,21 @@
   </section>
   {% endif %}
 
+  {% if band.gallery is defined and band.gallery %}
+  <section class="band-section">
+    <div class="band-section__inner">
+      <h2 class="band-section__title">Photos</h2>
+      <div class="band-gallery-grid">
+        {% for img in band.gallery %}
+        <div class="band-gallery-grid__item">
+          <img src="{{ url_for('static', filename='images/' ~ img) }}" alt="{{ band.name }} photo" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   {% set listen = get_streaming_links(band.name) %}
   {% if listen %}
   <section class="band-section">

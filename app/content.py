@@ -90,6 +90,9 @@ MUSIC = {
             "url_external": "https://pandemicfever.com",
             "card_image": "music/bands/Pandemic-Header-Logo.png",
             "featured": True,
+            "gallery": [
+                "music/bands/gallery/pandemic/preview.webp",
+            ],
         },
         {
             "slug": "code-red-riot",
@@ -100,6 +103,28 @@ MUSIC = {
             "url_external": "https://linktr.ee/coderedriot",
             "card_image": "music/bands/code red riot.jpg",
             "featured": True,
+            "gallery": [
+                "music/bands/gallery/code-red-riot/505777708_4024309347841809_7715807865004723605_n.jpg",
+                "music/bands/gallery/code-red-riot/506016432_4024309127841831_8059111995896846116_n.jpg",
+                "music/bands/gallery/code-red-riot/506020850_4024310144508396_1834922089331998896_n.jpg",
+                "music/bands/gallery/code-red-riot/506031621_4024310097841734_7849437605715721410_n.jpg",
+                "music/bands/gallery/code-red-riot/506044601_4024310451175032_7627880900340003804_n.jpg",
+                "music/bands/gallery/code-red-riot/506139464_4024309331175144_3822868570484021526_n.jpg",
+                "music/bands/gallery/code-red-riot/506304675_4024310191175058_4090827974887735242_n.jpg",
+                "music/bands/gallery/code-red-riot/506306983_4024310511175026_6035343872043475420_n.jpg",
+                "music/bands/gallery/code-red-riot/35121257_10155447714842611_6718863850780753920_n.jpg",
+                "music/bands/gallery/code-red-riot/35225891_10155447712072611_3520799917637369856_n.jpg",
+                "music/bands/gallery/code-red-riot/35226892_10155447712217611_2180349137180950528_n.jpg",
+                "music/bands/gallery/code-red-riot/37114278_2130443827203953_6981752085935030272_n.jpg",
+                "music/bands/gallery/code-red-riot/42549020_10155688262572611_5304401184562348032_n.jpg",
+                "music/bands/gallery/code-red-riot/42649442_10155688262522611_8122381265291706368_n.jpg",
+                "music/bands/gallery/code-red-riot/468665372_10162660583708453_4531454331984620010_n.jpg",
+                "music/bands/gallery/code-red-riot/472064041_10170898577895727_558813032380923173_n.jpg",
+                "music/bands/gallery/code-red-riot/472135450_10170884042205727_7737665537774350069_n.jpg",
+                "music/bands/gallery/code-red-riot/taz_CRR.jpg",
+                "music/bands/gallery/code-red-riot/coderedriot.jpg",
+                "music/bands/gallery/code-red-riot/code red riot.jpg",
+            ],
             "streaming": {
                 "spotify_embed_url": "https://open.spotify.com/embed/album/0tNXIO6ME8rtFcRUIak0uV",
                 "platforms": [
@@ -118,6 +143,17 @@ MUSIC = {
             "url_external": "https://hairballonline.com",
             "card_image": "music/bands/hairball.webp",
             "featured": False,
+            "gallery": [
+                "music/bands/gallery/hairball/119193857_10164487445105727_221552235811410408_n.jpg",
+                "music/bands/gallery/hairball/34863416_1766961096673953_8437915882415456256_n.jpg",
+                "music/bands/gallery/hairball/35489487_1290677257732268_1353844777702916096_n.jpg",
+                "music/bands/gallery/hairball/40684140_10161118588950727_143010840314904576_n.jpg",
+                "music/bands/gallery/hairball/46035964_1987192098026984_8104118179585851392_n.jpg",
+                "music/bands/gallery/hairball/472267974_10170670695425274_7763462850468380618_n.jpg",
+                "music/bands/gallery/hairball/472559185_10170926532830727_9063704705337378678_n.jpg",
+                "music/bands/gallery/hairball/taz_hairball.jpg",
+                "music/bands/gallery/hairball/preview (7).webp",
+            ],
         },
         {
             "slug": "rockstar-bobs-rockshow",
@@ -148,6 +184,11 @@ MUSIC = {
             "url_external": "https://lamadnessmusic.com/",
             "card_image": "music/bands/la madness.jpg",
             "featured": False,
+            "gallery": [
+                "music/bands/gallery/la-madness/472758715_10170964672090727_9038602632989929997_n.jpg",
+                "music/bands/gallery/la-madness/la madness.jpg",
+                "music/bands/gallery/la-madness/preview (6).webp",
+            ],
             "streaming": {
                 "spotify_embed_url": "https://open.spotify.com/embed/album/196mEUJI4c9tuLGvwm5WGs",
                 "platforms": [
@@ -164,6 +205,9 @@ MUSIC = {
             "url_external": "",
             "card_image": "music/bands/Taz&TBone.png",
             "featured": False,
+            "gallery": [
+                "music/bands/gallery/taz-and-t-bone/Taz&Tbone1.jpg",
+            ],
         },
         {
             "slug": "dirtee-circus",
@@ -174,6 +218,11 @@ MUSIC = {
             "url_external": "https://www.facebook.com/dirteecircusband/",
             "card_image": "music/bands/Dirtee_Circus.jpg",
             "featured": False,
+            "gallery": [
+                "music/bands/gallery/dirtee-circus/470214961_10170566029660727_6984243041806106190_n.jpg",
+                "music/bands/gallery/dirtee-circus/472886551_10170954795720727_1439670497971905408_n.jpg",
+                "music/bands/gallery/dirtee-circus/648812422_10174259783150727_8819566306982505118_n.jpg",
+            ],
         },
         {
             "slug": "diamondback",
@@ -194,6 +243,14 @@ MUSIC = {
             "url_external": "https://almostcooper.com/",
             "card_image": "music/bands/Almost_Cooper.png",
             "featured": False,
+            "gallery": [
+                "music/bands/gallery/almost-cooper/469899750_10236021580018505_6991603722219923685_n.jpg",
+                "music/bands/gallery/almost-cooper/472685727_10170968705590727_1261297078651282226_n.jpg",
+                "music/bands/gallery/almost-cooper/56835736_10218975146872358_3068247657563553792_n.jpg",
+                "music/bands/gallery/almost-cooper/56968271_10218995695026049_4896611962705674240_n.jpg",
+                "music/bands/gallery/almost-cooper/57052263_10157067863523187_4867868418063204352_n.jpg",
+                "music/bands/gallery/almost-cooper/preview (8).webp",
+            ],
         },
     ],
     "stages_shared": [
