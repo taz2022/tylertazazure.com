@@ -101,9 +101,9 @@ MUSIC = {
             "card_image": "music/bands/code red riot.jpg",
             "featured": True,
             "streaming": {
-                "spotify_embed_url": "https://open.spotify.com/embed/artist/5rak7UsAIT3HqwMtXE5IFQ",
+                "spotify_embed_url": "https://open.spotify.com/embed/album/0tNXIO6ME8rtFcRUIak0uV",
                 "platforms": [
-                    {"name": "Spotify",     "url": "https://open.spotify.com/artist/5lBCPOhmYMGnfrFaXcSCaB", "icon": "spotify"},       # TODO: confirm
+                    {"name": "Spotify",     "url": "https://open.spotify.com/album/0tNXIO6ME8rtFcRUIak0uV", "icon": "spotify"},
                     {"name": "Apple Music", "url": "", "icon": "apple-music"},   # TODO: fill in
                     {"name": "YouTube",     "url": "https://www.youtube.com/@coderedriot", "icon": "youtube"},  # TODO: confirm
                 ],
@@ -148,6 +148,12 @@ MUSIC = {
             "url_external": "",
             "card_image": "music/bands/la madness.jpg",
             "featured": False,
+            "streaming": {
+                "spotify_embed_url": "https://open.spotify.com/embed/album/196mEUJI4c9tuLGvwm5WGs",
+                "platforms": [
+                    {"name": "Spotify", "url": "https://open.spotify.com/album/196mEUJI4c9tuLGvwm5WGs", "icon": "spotify"},
+                ],
+            },
         },
         {
             "slug": "taz-and-t-bone",
