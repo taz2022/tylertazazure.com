@@ -17,6 +17,23 @@
     <div class="hub-hero__scroll-indicator">Scroll</div>
   </section>
 
+  {# -- Stages shared marquee -------------------------------- #}
+  {% if music.stages_shared %}
+  <div class="stages-marquee">
+    <div class="container">
+      <p class="stages-marquee__label">Stages &amp; bills shared with</p>
+    </div>
+    <div class="stages-marquee__track">
+      {% for name in music.stages_shared %}
+      <span class="stages-marquee__item">{{ name }}</span>
+      {% endfor %}
+      {% for name in music.stages_shared %}
+      <span class="stages-marquee__item" aria-hidden="true">{{ name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
   {# -- Listen + Upcoming Shows (side by side) ---------------- #}
   {% set has_listen = hub.streaming and hub.streaming.spotify_embed_url %}
   {% if has_listen or upcoming_shows %}
@@ -99,23 +116,6 @@
       </div>
     </div>
   </section>
-
-  {# -- Stages shared marquee -------------------------------- #}
-  {% if music.stages_shared %}
-  <div class="stages-marquee">
-    <div class="container">
-      <p class="stages-marquee__label">Stages &amp; bills shared with</p>
-    </div>
-    <div class="stages-marquee__track">
-      {% for name in music.stages_shared %}
-      <span class="stages-marquee__item">{{ name }}</span>
-      {% endfor %}
-      {% for name in music.stages_shared %}
-      <span class="stages-marquee__item" aria-hidden="true">{{ name }}</span>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
 
   {# -- Press Quotes ----------------------------------------- #}
   {% set has_quotes = hub.press_quotes and hub.press_quotes|selectattr('quote')|list %}
