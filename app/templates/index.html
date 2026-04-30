@@ -17,26 +17,54 @@
     <div class="hub-hero__scroll-indicator">Scroll</div>
   </section>
 
-  {# -- Listen / Streaming ----------------------------------- #}
-  {% if hub.streaming and hub.streaming.spotify_embed_url %}
-  <section class="hub-listen" id="listen">
-    <div class="hub-listen__inner">
-      <span class="section-label">Listen</span>
-      <div class="hub-listen__embed">
-        <iframe src="{{ hub.streaming.spotify_embed_url }}?utm_source=generator&theme=0"
-                width="100%" height="352" frameborder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"></iframe>
-      </div>
-      {% if hub.streaming.platforms %}
-      <div class="hub-listen__platforms">
-        {% for p in hub.streaming.platforms %}
-        {% if p.url %}
-        <a href="{{ p.url }}" class="hub-listen__platform" target="_blank" rel="noopener">{{ p.name }}</a>
+  {# -- Listen + Upcoming Shows (side by side) ---------------- #}
+  {% set has_listen = hub.streaming and hub.streaming.spotify_embed_url %}
+  {% if has_listen or upcoming_shows %}
+  <section class="hub-split" id="listen">
+    <div class="hub-split__inner">
+
+      {% if has_listen %}
+      <div class="hub-split__left">
+        <span class="section-label">Listen</span>
+        <div class="hub-listen__embed">
+          <iframe src="{{ hub.streaming.spotify_embed_url }}?utm_source=generator&theme=0"
+                  width="100%" height="352" frameborder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"></iframe>
+        </div>
+        {% if hub.streaming.platforms %}
+        <div class="hub-listen__platforms">
+          {% for p in hub.streaming.platforms %}
+          {% if p.url %}
+          <a href="{{ p.url }}" class="hub-listen__platform" target="_blank" rel="noopener">{{ p.name }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
         {% endif %}
-        {% endfor %}
       </div>
       {% endif %}
+
+      {% if upcoming_shows %}
+      <div class="hub-split__right">
+        <span class="section-label">Next up</span>
+        <h2 class="section-heading">Upcoming Shows</h2>
+        <table class="shows-table shows-table--compact">
+          <tbody>
+            {% for show in upcoming_shows %}
+            <tr>
+              <td class="shows-table__date">{{ show.date[5:7] }}/{{ show.date[8:10] }}</td>
+              <td class="shows-table__venue">{{ show.venue }}</td>
+              <td class="shows-table__band">{{ show.band }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div class="hub-upcoming__cta">
+          <a href="/shows" class="btn btn--outline btn--sm">View All Shows &rarr;</a>
+        </div>
+      </div>
+      {% endif %}
+
     </div>
   </section>
   {% endif %}
@@ -87,41 +115,6 @@
       {% endfor %}
     </div>
   </div>
-  {% endif %}
-
-  {# -- Upcoming Shows --------------------------------------- #}
-  {% if upcoming_shows %}
-  <section class="hub-upcoming" id="upcoming">
-    <div class="hub-upcoming__inner">
-      <span class="section-label">Next up</span>
-      <h2 class="section-heading">Upcoming Shows</h2>
-      <table class="shows-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Venue</th>
-            <th>City</th>
-            <th>Band</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for show in upcoming_shows %}
-          <tr>
-            <td class="shows-table__date">{{ show.date[5:7] }}/{{ show.date[8:10] }}</td>
-            <td class="shows-table__venue">{{ show.venue }}</td>
-            <td class="shows-table__city">{{ show.city }}</td>
-            <td class="shows-table__band">{{ show.band }}</td>
-            <td class="shows-table__time">{{ show.time }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <div class="hub-upcoming__cta">
-        <a href="/shows" class="btn btn--outline">View All Shows &rarr;</a>
-      </div>
-    </div>
-  </section>
   {% endif %}
 
   {# -- Press Quotes ----------------------------------------- #}

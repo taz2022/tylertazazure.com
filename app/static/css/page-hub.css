@@ -52,11 +52,11 @@
 }
 
 .hub-hero__name {
-  font-family: var(--font-body);
-  font-size: clamp(2.2rem, 7vw, 5.5rem);
-  font-weight: 700;
+  font-family: 'Bebas Neue', var(--font-body);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text);
   margin: 0 0 1.5rem 0;
@@ -87,18 +87,35 @@
   50% { opacity: 0.8; transform: translateY(6px); }
 }
 
-/* ── Listen / Streaming ──────────────────────────────────── */
-.hub-listen {
+/* ── Listen + Shows split layout ─────────────────────────── */
+.hub-split {
   padding: clamp(4rem, 8vw, 6rem) 0;
   background: var(--color-bg-2);
   border-top: 1px solid var(--color-border);
-  text-align: center;
 }
 
-.hub-listen__inner {
-  max-width: 700px;
+.hub-split__inner {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.hub-split__left,
+.hub-split__right {
+  min-width: 0;
+}
+
+.shows-table--compact {
+  margin-top: 1rem;
+}
+
+.shows-table--compact td {
+  padding: var(--space-3) var(--space-2);
+  font-size: var(--text-sm);
 }
 
 .hub-listen__embed {
@@ -703,6 +720,10 @@
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
+  .hub-split__inner {
+    grid-template-columns: 1fr;
+  }
+
   .hub-bands__grid {
     grid-template-columns: 1fr;
   }

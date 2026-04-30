@@ -296,6 +296,17 @@ GALLERY = {
         "music/gallery/preview (7).webp",
         "music/gallery/preview (8).webp",
         "music/gallery/preview (9).webp",
+        "gallery/1.jpg",
+        "gallery/live.jpg",
+        "gallery/484649295_10171401158040727_8294101607677816289_n.jpg",
+        "gallery/487855993_10171516303230727_6121169038323754383_n.jpg",
+        "gallery/515443694_10230690344747658_5664901142768243563_n.jpg",
+        "gallery/517320157_10172289121905727_1046801929018666225_n.jpg",
+        "gallery/54514694_10218043253503193_6580482091857739776_n.jpg",
+        "gallery/649492999_10162407072407611_6373494336235078210_n.jpg",
+        "gallery/preview (3).webp",
+        "gallery/preview (4).webp",
+        "gallery/preview (9).webp",
     ],
 }
 
