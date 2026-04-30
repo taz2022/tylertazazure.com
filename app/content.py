@@ -310,8 +310,6 @@ GALLERY = {
         "gallery/54514694_10218043253503193_6580482091857739776_n.jpg",
         "gallery/649492999_10162407072407611_6373494336235078210_n.jpg",
         "gallery/preview (3).webp",
-        "gallery/preview (4).webp",
-        "gallery/preview (9).webp",
     ],
 }
 
