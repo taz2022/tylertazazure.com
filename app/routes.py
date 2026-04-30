@@ -1,3 +1,4 @@
+from datetime import date
 from flask import Blueprint, render_template, abort, request, jsonify, current_app
 from . import content as c
 from . import press_loader
@@ -16,10 +17,13 @@ def inject_globals():
 
 @main.route("/")
 def home():
+    today = date.today().isoformat()
+    upcoming = [s for s in c.SHOWS["upcoming"] if s["date"] >= today][:5]
     return render_template(
         "index.html",
         hub=c.HUB,
         music=c.MUSIC,
+        upcoming_shows=upcoming,
         about=c.ABOUT,
         contact=c.CONTACT,
     )

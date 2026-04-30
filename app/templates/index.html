@@ -17,6 +17,30 @@
     <div class="hub-hero__scroll-indicator">Scroll</div>
   </section>
 
+  {# -- Listen / Streaming ----------------------------------- #}
+  {% if hub.streaming and hub.streaming.spotify_embed_url %}
+  <section class="hub-listen" id="listen">
+    <div class="hub-listen__inner">
+      <span class="section-label">Listen</span>
+      <div class="hub-listen__embed">
+        <iframe src="{{ hub.streaming.spotify_embed_url }}?utm_source=generator&theme=0"
+                width="100%" height="352" frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+      </div>
+      {% if hub.streaming.platforms %}
+      <div class="hub-listen__platforms">
+        {% for p in hub.streaming.platforms %}
+        {% if p.url %}
+        <a href="{{ p.url }}" class="hub-listen__platform" target="_blank" rel="noopener">{{ p.name }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
   {# -- Bands ------------------------------------------------ #}
   <section class="hub-bands" id="bands">
     <div class="hub-bands__inner">
@@ -65,6 +89,60 @@
   </div>
   {% endif %}
 
+  {# -- Upcoming Shows --------------------------------------- #}
+  {% if upcoming_shows %}
+  <section class="hub-upcoming" id="upcoming">
+    <div class="hub-upcoming__inner">
+      <span class="section-label">Next up</span>
+      <h2 class="section-heading">Upcoming Shows</h2>
+      <table class="shows-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>City</th>
+            <th>Band</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for show in upcoming_shows %}
+          <tr>
+            <td class="shows-table__date">{{ show.date[5:7] }}/{{ show.date[8:10] }}</td>
+            <td class="shows-table__venue">{{ show.venue }}</td>
+            <td class="shows-table__city">{{ show.city }}</td>
+            <td class="shows-table__band">{{ show.band }}</td>
+            <td class="shows-table__time">{{ show.time }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="hub-upcoming__cta">
+        <a href="/shows" class="btn btn--outline">View All Shows &rarr;</a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# -- Press Quotes ----------------------------------------- #}
+  {% set has_quotes = hub.press_quotes and hub.press_quotes|selectattr('quote')|list %}
+  {% if has_quotes %}
+  <section class="hub-quotes">
+    <div class="hub-quotes__inner">
+      {% for q in hub.press_quotes %}
+      {% if q.quote %}
+      <blockquote class="hub-quotes__block">
+        <p class="hub-quotes__text">&ldquo;{{ q.quote }}&rdquo;</p>
+        <cite class="hub-quotes__cite">
+          {{ q.source }}{% if q.author %} &mdash; {{ q.author }}{% endif %}
+        </cite>
+      </blockquote>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {# -- About ----------------------------------------------- #}
   <section class="hub-about" id="about">
     <div class="hub-about__inner">
@@ -74,6 +152,21 @@
       {% endfor %}
     </div>
   </section>
+
+  {# -- Photo Strip ------------------------------------------ #}
+  {% if hub.photo_strip %}
+  <section class="hub-strip">
+    <a href="/gallery" class="hub-strip__link" aria-label="View gallery">
+      <div class="hub-strip__track">
+        {% for img in hub.photo_strip %}
+        <div class="hub-strip__item">
+          <img src="{{ url_for('static', filename='images/' ~ img) }}" alt="Live photo" loading="lazy" />
+        </div>
+        {% endfor %}
+      </div>
+    </a>
+  </section>
+  {% endif %}
 
   {# -- Contact --------------------------------------------- #}
   <section class="hub-contact" id="contact">

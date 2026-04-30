@@ -1,26 +1,22 @@
 <footer class="footer" role="contentinfo">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <span class="footer__name">Tyler Azure</span>
+      <span class="footer__name">Tyler "Taz" Azure</span>
       <span class="footer__tagline">{{ footer.tagline }}</span>
     </div>
 
-    <nav class="footer__nav" aria-label="Footer navigation">
-      <ul class="footer__links" role="list">
-        {% for link in nav_links %}
-        <li><a href="{{ link.href }}" class="footer__link">{{ link.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+    {% if footer.social_links %}
+    <div class="footer__socials">
+      {% for link in footer.social_links %}
+      <a href="{{ link.url }}" class="social-link" target="_blank" rel="noopener">{{ link.platform }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
 
     <div class="footer__bottom">
       <p class="footer__copy">
-        &copy; <span id="footerYear"></span> {{ footer.copyright }}. All rights reserved.
+        &copy; {{ current_year }} {{ footer.copyright }}. All rights reserved.
       </p>
     </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('footerYear').textContent = new Date().getFullYear();
-</script>

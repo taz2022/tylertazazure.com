@@ -15,6 +15,9 @@ def create_app(config_class=Config):
     app.jinja_env.globals["get_band_references"] = press_loader.get_band_references
     app.jinja_env.globals["get_streaming_links"] = press_loader.get_streaming_links
 
+    from datetime import date
+    app.jinja_env.globals["current_year"] = date.today().year
+
     from .routes import main
     app.register_blueprint(main)
 

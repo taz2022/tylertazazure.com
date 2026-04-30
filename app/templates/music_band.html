@@ -21,6 +21,29 @@
     </div>
   </section>
 
+  {% if band.streaming and band.streaming.spotify_embed_url %}
+  <section class="band-section">
+    <div class="band-section__inner">
+      <h2 class="band-section__title">Listen</h2>
+      <div class="band-streaming-embed">
+        <iframe src="{{ band.streaming.spotify_embed_url }}?utm_source=generator&theme=0"
+                width="100%" height="352" frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+      </div>
+      {% if band.streaming.platforms %}
+      <div class="hub-listen__platforms">
+        {% for p in band.streaming.platforms %}
+        {% if p.url %}
+        <a href="{{ p.url }}" class="hub-listen__platform" target="_blank" rel="noopener">{{ p.name }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
   {% if band_videos %}
   <section class="band-section">
     <div class="band-section__inner">

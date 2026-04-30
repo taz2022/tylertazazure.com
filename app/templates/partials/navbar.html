@@ -16,6 +16,14 @@
       </ul>
     </nav>
 
+    {% if footer.social_links %}
+    <div class="navbar__socials">
+      {% for link in footer.social_links %}
+      <a href="{{ link.url }}" class="navbar__social" target="_blank" rel="noopener" aria-label="{{ link.platform }}">{{ link.platform }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation"
             aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>

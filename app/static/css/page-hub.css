@@ -85,6 +85,51 @@
   50% { opacity: 0.8; transform: translateY(6px); }
 }
 
+/* ── Listen / Streaming ──────────────────────────────────── */
+.hub-listen {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--color-bg-2);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.hub-listen__inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hub-listen__embed {
+  margin: 2rem 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.hub-listen__platforms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: 1.5rem;
+}
+
+.hub-listen__platform {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.4em 1em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--duration);
+}
+
+.hub-listen__platform:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+  background: rgba(255,255,255,0.04);
+}
+
 /* ── Homepage Bands Grid ─────────────────────────────────── */
 .hub-bands {
   padding: clamp(4rem, 8vw, 7rem) 0;
@@ -140,6 +185,97 @@
   color: var(--color-text-muted);
   line-height: 1.75;
   margin: 0 0 2rem 0;
+}
+
+/* ── Upcoming Shows (homepage) ────────────────────────────── */
+.hub-upcoming {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--color-bg-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.hub-upcoming__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hub-upcoming__cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ── Press Quotes ────────────────────────────────────────── */
+.hub-quotes {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.hub-quotes__inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hub-quotes__block {
+  text-align: center;
+}
+
+.hub-quotes__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.hub-quotes__cite {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+/* ── Photo Strip ─────────────────────────────────────────── */
+.hub-strip {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.hub-strip__link {
+  display: block;
+  text-decoration: none;
+}
+
+.hub-strip__track {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.hub-strip__item {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hub-strip__item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
+  filter: brightness(0.85);
+}
+
+.hub-strip__link:hover .hub-strip__item img {
+  transform: scale(1.03);
+  filter: brightness(1);
 }
 
 /* ── About / Through-line ─────────────────────────────────── */

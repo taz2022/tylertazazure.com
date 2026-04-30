@@ -44,6 +44,27 @@ HUB = {
         "name": "Tyler \u201cTaz\u201d Azure",
         "pill": "Available for booking",
     },
+    "streaming": {
+        "spotify_embed_url": "",  # TODO: fill in (Spotify artist embed URL)
+        "platforms": [
+            {"name": "Spotify",       "url": "", "icon": "spotify"},       # TODO: fill in
+            {"name": "Apple Music",   "url": "", "icon": "apple-music"},   # TODO: fill in
+            {"name": "YouTube Music", "url": "", "icon": "youtube-music"}, # TODO: fill in
+            {"name": "Amazon Music",  "url": "", "icon": "amazon-music"},  # TODO: fill in
+        ],
+    },
+    "press_quotes": [
+        {"quote": "", "source": "", "author": "", "url": ""},  # TODO: fill in
+        {"quote": "", "source": "", "author": "", "url": ""},  # TODO: fill in
+    ],
+    "photo_strip": [
+        "gallery/taz_live.jpg",
+        "gallery/taz_CRR.jpg",
+        "gallery/taz_hairball.jpg",
+        "gallery/tazbenefit.jpg",
+        "gallery/tazriver.jpg",
+        "gallery/Taz&treybenefit.jpg",
+    ],
 }
 
 # ───────────────────────────────────────────────────────────
@@ -79,6 +100,14 @@ MUSIC = {
             "url_external": "https://linktr.ee/coderedriot",
             "card_image": "music/bands/code red riot.jpg",
             "featured": True,
+            "streaming": {
+                "spotify_embed_url": "https://open.spotify.com/embed/artist/5lBCPOhmYMGnfrFaXcSCaB",  # TODO: confirm
+                "platforms": [
+                    {"name": "Spotify",     "url": "https://open.spotify.com/artist/5lBCPOhmYMGnfrFaXcSCaB", "icon": "spotify"},       # TODO: confirm
+                    {"name": "Apple Music", "url": "", "icon": "apple-music"},   # TODO: fill in
+                    {"name": "YouTube",     "url": "https://www.youtube.com/@coderedriot", "icon": "youtube"},  # TODO: confirm
+                ],
+            },
         },
         {
             "slug": "hairball",
@@ -348,6 +377,7 @@ CONTACT = {
 # FOOTER
 # ───────────────────────────────────────────────────────────
 FOOTER = {
+    "copyright": "Tyler Azure",
     "tagline": "Guitarist based in Minnesota.",
     "social_links": [
         {"platform": "Facebook", "url": "https://www.facebook.com/TylerAzure/", "icon": "facebook"},
